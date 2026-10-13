@@ -677,54 +677,7 @@ const FullWrap: React.FC<{s: Full; children: React.ReactNode}> = ({s, children})
 };
 
 /* ---------------------------------------------------------------- audio */
-type Cue = {src: string; at: number; db: number};
-const PEAK: Record<string, number> = {whoosh_hollow: 0.385, whoosh_deep: 0.6, whoosh_soft: 0.78, whoosh_trans: 0.4, swish: 0.126, fire_whoosh: 0.48};
-const wh = (src: string, peakAt: number, db = -12): Cue => ({src, at: peakAt - (PEAK[src] ?? 0), db});
-const tx = (src: string, at: number, db = -6): Cue => ({src, at, db});
-const rs = (src: string, endAt: number, db = -5): Cue => ({src, at: endAt - 2.0, db});
-
-export const CUES_V2: Record<string, Cue[]> = {
-  WHOOSHES: [
-    wh('swish', 1.3, -10), wh('whoosh_trans', 4.9, -10), wh('whoosh_deep', 6.72), wh('swish', 8.38, -14), wh('swish', 9.38, -14),
-    wh('swish', 10.59, -14), wh('whoosh_trans', 10.9, -10), wh('whoosh_hollow', 13.52), wh('whoosh_hollow', 16.3), wh('whoosh_soft', 17.2),
-    wh('swish', 14.0, -10), wh('whoosh_hollow', 15.42), wh('whoosh_soft', 21.9, -14), wh('swish', 24.24, -10), wh('whoosh_deep', 28.6), wh('whoosh_hollow', 32.56), wh('whoosh_trans', 35.45), wh('whoosh_hollow', 38.28),
-    wh('whoosh_deep', 42.45, -10),
-  ],
-  TEXTURES: [
-    tx('camera', 0.0, -6), tx('glitch', 0.14, -12), tx('pop', 0.26, -8), tx('scifi_impact', 0.78, -7),
-    tx('pop', 1.38, -8), tx('scifi_impact', 2.11, -6),
-    tx('pop', 3.97, -9), tx('pop', 4.28, -9),
-    tx('scifi_impact', 5.16, -7), tx('tick', 5.5, -8), tx('tick', 5.75, -8), tx('tick', 6.0, -8), tx('pop', 5.93, -8),
-    tx('pop', 8.38, -7), tx('pop', 9.38, -7), tx('pop', 10.59, -7),
-    tx('liquid', 10.95, -9), tx('pop', 11.9, -8), tx('scifi_impact', 13.11, -6),
-    tx('glitch', 14.2, -13), tx('pop', 14.36, -8), tx('tick', 14.76, -8), tx('click', 15.79, -7), tx('hit', 15.79, -12),
-    tx('click', 16.65, -9), tx('click', 17.77, -7), tx('shimmer', 19.42, -8),
-    tx('pop', 21.88, -8), tx('pop', 22.69, -9), tx('pop', 24.25, -9), tx('pop', 24.37, -7), tx('pop', 24.95, -7), tx('pop', 25.63, -7),
-    tx('pop', 26.54, -8),
-    tx('scifi_impact', 28.94, -7), tx('pop', 29.64, -8),
-    tx('scifi_impact', 32.1, -6),
-    tx('camera', 34.51, -8),
-    tx('liquid', 35.5, -10), tx('pop', 37.0, -8), tx('pop', 37.71, -9),
-    tx('pop', 39.62, -8), tx('pop', 41.56, -8),
-    tx('tick', 43.9, -8), tx('success', 43.74, -7),
-  ],
-  FOLEY: [
-    tx('fire_whoosh', 0.0, -8), tx('fire_bed', 0.0, -18), tx('underwater', 1.3, -14),
-    tx('fire_whoosh', 29.72, -8), tx('fire_bed', 30.2, -16), tx('underwater', 28.55, -14), tx('underwater', 35.4, -13),
-  ],
-  RISERS: [rs('riser_bass', 2.28), rs('riser_metal', 10.85), rs('riser_bass', 26.18), rs('riser_metal', 30.2), {src: 'reverse_swell', at: 34.51 - 2.36, db: -9}],
-  HITS: [tx('boom', 0.0, -6), tx('hit', 2.28, -8), tx('hit', 10.85, -10), tx('hit', 26.18, -8), tx('hit', 30.2, -10), tx('boom', 31.48, -9), tx('boom', 34.51, -5)],
-};
-
-const CueTrack: React.FC<{cues: Cue[]}> = ({cues}) => (
-  <>
-    {cues.map((c, i) => (
-      <Sequence key={i} from={Math.max(0, f(c.at))} durationInFrames={f(6)}>
-        <Audio src={staticFile(`sfx2/${c.src}.wav`)} volume={Math.pow(10, c.db / 20)} trimBefore={c.at < 0 ? f(-c.at) : 0} />
-      </Sequence>
-    ))}
-  </>
-);
+// SFX cue list + levels live in scripts/mix_sfx.py (rendered to public/sfx_stem_v3.wav)
 
 // Song drop (31.08 s into the track) lands on "percutant" (34.51)
 const MUSIC_IN = 34.51 - 31.08;
@@ -734,7 +687,7 @@ const Music: React.FC = () => (
       const t = fr / FPS + MUSIC_IN;
       const fadeIn = interpolate(t, [MUSIC_IN, MUSIC_IN + 0.8], [0, 1], clamp);
       const fadeOut = interpolate(t, [44.0, MUSIC_IN + 41.25], [1, 0], clamp);
-      return Math.pow(10, (t >= 34.51 ? -23 : -19) / 20) * fadeIn * fadeOut;
+      return Math.pow(10, (t >= 34.51 ? -20 : -16) / 20) * fadeIn * fadeOut;
     }} />
   </Sequence>
 );
@@ -774,8 +727,9 @@ export const ReelV2: React.FC = () => {
       <Flash at={26.18} dur={0.16} color="#FFE7C2" />
       <Flash at={34.51} dur={0.22} />
       {/* audio */}
-      <Audio src={staticFile('voice_v2.wav')} />
-      {Object.entries(CUES_V2).map(([k, c]) => <CueTrack key={k} cues={c} />)}
+      {/* voice: levelled + light compression; SFX: one stem mixed relative to the voice (scripts/mix_sfx.py) */}
+      <Audio src={staticFile('voice_v3.wav')} />
+      <Audio src={staticFile('sfx_stem_v3.wav')} />
       <Music />
     </AbsoluteFill>
   );
