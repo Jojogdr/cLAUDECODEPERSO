@@ -1,2 +1,5 @@
 node_modules/
 out/
+# regenerable heavy intermediates (see scripts/)
+public/base_v2.mp4
+public/fg_v2.webm
