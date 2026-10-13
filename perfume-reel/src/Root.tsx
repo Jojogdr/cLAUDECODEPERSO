@@ -8,11 +8,17 @@ import '@fontsource/playfair-display/600-italic.css';
 import {Reel, FPS, DURATION} from './Reel';
 import {ReelV2, DURATION_V2} from './ReelV2';
 import {ReelV4, DURATION_V4} from './ReelV4';
+import {ReelV5, DURATION_V5} from './ReelV5';
+import {ReelV6, DURATION_V6} from './ReelV6';
+import {ReelV7, DURATION_V7} from './ReelV7';
 
 export const RemotionRoot = () => (
   <>
     <Composition id="EbeneFume" component={Reel} durationInFrames={Math.round(DURATION * FPS)} fps={FPS} width={1080} height={1920} />
     <Composition id="EbeneFumeV2" component={ReelV2} durationInFrames={Math.round(DURATION_V2 * FPS)} fps={FPS} width={1080} height={1920} />
     <Composition id="EbeneFumeV4" component={ReelV4} durationInFrames={Math.round(DURATION_V4 * FPS)} fps={FPS} width={1080} height={1920} />
+    <Composition id="EbeneFumeV5" component={ReelV5} durationInFrames={Math.round(DURATION_V5 * FPS)} fps={FPS} width={1080} height={1920} />
+    <Composition id="EbeneFumeV6" component={ReelV6} durationInFrames={Math.round(DURATION_V6 * FPS)} fps={FPS} width={1080} height={1920} />
+    <Composition id="EbeneFumeV7" component={ReelV7} durationInFrames={Math.round(DURATION_V7 * FPS)} fps={FPS} width={1080} height={1920} />
   </>
 );
