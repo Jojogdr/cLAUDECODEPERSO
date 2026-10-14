@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Easing, Img, interpolate, spring, staticFile} from 'remotion';
 import type {CardFace, Edl, FloatCard, Line, Sheet, TypeComp} from './types';
-import {useEdl, useT, expo, clamp, SHADOW, camAt} from './ctx';
+import {useEdl, useT, expo, clamp, SHADOW, camAt, upY} from './ctx';
 
 /* =====================================================================
    Design layer — what makes it look designed rather than "a word in the middle":
@@ -89,8 +89,10 @@ export const KLine: React.FC<{l: Line; shadow?: boolean}> = ({l, shadow}) => {
 };
 
 /* ------------------------------------------------------ compositions */
-export const TypeCompView: React.FC<{c: TypeComp}> = ({c}) => {
+export const TypeCompView: React.FC<{c: TypeComp}> = ({c: c0}) => {
+  const edl = useEdl();
   const t = useT();
+  const c = {...c0, y: upY(edl, c0.y)};
   if (t < c.from || t >= c.to) return null;
   const ex = c.exit ?? 'blur';
   const q = ex === 'cut' ? 0 : interpolate(t, [c.to - 0.14, c.to], [0, 1], {...clamp, easing: Easing.in(Easing.cubic)});
@@ -148,7 +150,7 @@ export const FloatCardView: React.FC<{c: FloatCard; overBase?: boolean}> = ({c, 
   const cam = overBase ? 1 + (camAt(edl, t) - 1) * (c.parallax ?? 0.6) : 1;
   return (
     <AbsoluteFill style={{transform: `scale(${cam})`, transformOrigin: edl.base.origin ?? '50% 32%'}}>
-      <div style={{position: 'absolute', left: c.x - c.w / 2, top: c.y, width: c.w, perspective: 1600,
+      <div style={{position: 'absolute', left: c.x - c.w / 2, top: upY(edl, c.y), width: c.w, perspective: 1600,
         opacity: Math.min(1, p * 1.6) * (1 - out), filter: p < 0.98 || out > 0 ? `blur(${Math.max((1 - Math.min(1, p)) * 10, out * 12)}px)` : undefined,
         transform: `${enter} translateY(${floatY - out * 40}px) rotate(${rot}deg)`}}>
         <div style={{position: 'relative', transformStyle: 'preserve-3d', transform: `rotateY(${flip}deg)`}}>

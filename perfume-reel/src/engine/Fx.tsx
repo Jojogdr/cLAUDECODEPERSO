@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Easing, Img, OffthreadVideo, Sequence, interpolate, random, spring, staticFile} from 'remotion';
 import type {Edl, Fx} from './types';
-import {useEdl, useT, expo, clamp, camAt} from './ctx';
+import {useEdl, useT, expo, clamp, camAt, layoutOf, upY} from './ctx';
 
 /* =====================================================================
    "Punch" layer — one literal visual per punchline, the way short-form
@@ -19,12 +19,12 @@ const out = (t: number, to: number, d = 0.16) => interpolate(t, [to - d, to], [1
 const BrandFrame: React.FC<{fx: Extract<Fx, {kind: 'brand'}>}> = ({fx}) => {
   const edl = useEdl();
   const c = fx.color ?? '#fff';
-  const top = fx.top ?? 240;   // just under Instagram's header; higher up the iPhone status bar and the Reels tabs cover it
+  const L = layoutOf(edl);
   const sh = '0 1px 8px rgba(0,0,0,0.45)';
   return (
     <AbsoluteFill style={{pointerEvents: 'none'}}>
-      <div style={{position: 'absolute', left: 96, top: top + 6, fontFamily: edl.theme.mono, fontWeight: 500, fontSize: 25, letterSpacing: '0.16em', color: c, textShadow: sh}}>{fx.label}</div>
-      <div style={{position: 'absolute', right: 96, top, fontFamily: edl.theme.sans, fontWeight: 300, fontSize: 36, letterSpacing: '0.08em', color: c, textShadow: sh}}>{fx.mark}</div>
+      <div style={{position: 'absolute', left: L.ref.left, top: L.ref.top, fontFamily: edl.theme.mono, fontWeight: 500, fontSize: 23, letterSpacing: '0.16em', color: c, textShadow: sh}}>{fx.label}</div>
+      <div style={{position: 'absolute', right: L.mark.right, top: L.mark.top, fontFamily: edl.theme.sans, fontWeight: 300, fontSize: 34, letterSpacing: '0.08em', color: c, textShadow: sh}}>{fx.mark}</div>
     </AbsoluteFill>
   );
 };
@@ -83,7 +83,7 @@ const Badge: React.FC<{fx: Extract<Fx, {kind: 'badge'}>}> = ({fx}) => {
   const ring = fx.ring ?? '#E9C98F';
   return (
     <AbsoluteFill style={{transform: `scale(${cam})`, transformOrigin: edl.base.origin ?? '50% 32%'}}>
-      <div style={{position: 'absolute', left: fx.x - r / 2, top: fx.y - r / 2 + fl, width: r, height: r, borderRadius: '50%', overflow: 'hidden',
+      <div style={{position: 'absolute', left: fx.x - r / 2, top: upY(edl, fx.y) - r / 2 + fl, width: r, height: r, borderRadius: '50%', overflow: 'hidden',
         transform: `scale(${p * o}) rotate(${(1 - p) * -25}deg)`, border: `${Math.round(r * 0.045)}px solid ${ring}`, background: fx.bg ?? '#141210',
         boxShadow: '0 18px 40px rgba(0,0,0,0.35)', display: 'grid', placeItems: 'center', color: fx.color ?? ring}}>
         {fx.image ? <Img src={staticFile(fx.image)} style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: fx.pos ?? '50% 50%', transform: `scale(${1.15 - 0.1 * p})`}} /> : null}
@@ -115,7 +115,7 @@ const Notifs: React.FC<{fx: Extract<Fx, {kind: 'notifs'}>}> = ({fx}) => {
   const max = fx.max ?? 2;   // keep the face clear: older banners fade out as new ones land
   const shown = arrived.slice(-(max + 1));
   const clk = pop(edl, t, fx.from, 20);
-  const GAP = 158, Y0 = fx.y ?? (fx.lock ? 660 : 300);
+  const GAP = 158, Y0 = fx.y ?? (fx.lock ? 660 : 118);
   const newest = shown[shown.length - 1];
   const qn = newest ? spring({frame: Math.round((t - newest.at) * edl.fps), fps: edl.fps, config: {damping: 24, mass: 0.9, stiffness: 120}}) : 1;
   return (
@@ -135,7 +135,7 @@ const Notifs: React.FC<{fx: Extract<Fx, {kind: 'notifs'}>}> = ({fx}) => {
             background: 'rgba(246,246,248,0.80)', backdropFilter: 'blur(30px) saturate(1.8)', WebkitBackdropFilter: 'blur(30px) saturate(1.8)',
             border: '1px solid rgba(0,0,0,0.06)', boxShadow: '0 8px 24px rgba(0,0,0,0.14)', display: 'flex', gap: 22, alignItems: 'center',
             opacity: i === 0 ? Math.min(1, p * 1.6) : i >= max ? Math.max(0, 1 - qn * 1.8) : 1 - 0.12 * Math.min(i, 3),
-            transform: i === 0 ? `translateY(${(1 - p) * -90}px) scale(${0.96 + 0.04 * p})` : `scale(${1 - 0.03 * Math.min(i, 3)})`}}>
+            transform: i === 0 ? `translateY(${(1 - p) * -(Y0 + 190)}px) scale(${0.96 + 0.04 * p})` : `scale(${1 - 0.03 * Math.min(i, 3)})`}}>
             <MsgIcon size={70} wa={n.app === 'whatsapp'} />
             <div style={{flex: 1, minWidth: 0}}>
               <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontFamily: sf, color: '#1d1d1f'}}>
@@ -163,7 +163,7 @@ const Gauge: React.FC<{fx: Extract<Fx, {kind: 'gauge'}>}> = ({fx}) => {
   const acc = fx.accent ?? '#E9C98F';
   return (
     <AbsoluteFill style={{opacity: o}}>
-      <div style={{position: 'absolute', left: 70, right: 70, top: fx.y, padding: '28px 32px 30px', borderRadius: 30, background: 'rgba(14,11,8,0.72)', backdropFilter: 'blur(14px)',
+      <div style={{position: 'absolute', left: 70, right: 70, top: upY(edl, fx.y), padding: '28px 32px 30px', borderRadius: 30, background: 'rgba(14,11,8,0.72)', backdropFilter: 'blur(14px)',
         border: '1px solid rgba(233,201,143,0.35)', transform: `translateY(${(1 - p) * 80}px)`, opacity: Math.min(1, p * 1.5)}}>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 18}}>
           <span style={{fontFamily: edl.theme.mono, fontWeight: 500, fontSize: 26, letterSpacing: '0.18em', color: acc}}>{fx.label}</span>
@@ -209,12 +209,13 @@ const PRINT = (() => {
   return paths;
 })();
 const Fingerprint: React.FC<{fx: Extract<Fx, {kind: 'fingerprint'}>}> = ({fx}) => {
+  const edl = useEdl();
   const t = useT();
   if (t < fx.from || t >= fx.to) return null;
   const o = out(t, fx.to);
   const col = fx.color ?? '#E9C98F';
   return (
-    <AbsoluteFill style={{alignItems: 'center', top: fx.y ?? 380, opacity: o}}>
+    <AbsoluteFill style={{alignItems: 'center', top: upY(edl, fx.y ?? 380), opacity: o}}>
       <svg viewBox="0 0 500 600" style={{width: fx.size ?? 560, height: (fx.size ?? 560) * 1.2, filter: `drop-shadow(0 0 18px ${col}55)`}}>
         {PRINT.map((d, i) => {
           const a = fx.from + 0.05 + i * 0.045;
@@ -278,11 +279,11 @@ const EndCard: React.FC<{fx: Extract<Fx, {kind: 'endcard'}>}> = ({fx}) => {
   const pb = pop(edl, t, fx.ctaAt ?? fx.from + 1.2, 16);
   return (
     <AbsoluteFill style={{background: 'radial-gradient(ellipse 70% 45% at 50% 34%, #3B2A19 0%, #15100B 60%, #0B0907 100%)'}}>
-      <AbsoluteFill style={{alignItems: 'center', top: 320}}>
+      <AbsoluteFill style={{alignItems: 'center', top: upY(edl, 320)}}>
         <Img src={staticFile(fx.image)} style={{height: 560, objectFit: 'contain', filter: 'drop-shadow(3px 5px 30px rgba(0,0,0,0.55))',
           opacity: Math.min(1, p * 1.4), transform: `translateY(${(1 - p) * 120 + drift}px) scale(${0.94 + 0.06 * p})`}} />
       </AbsoluteFill>
-      <AbsoluteFill style={{top: 920, alignItems: 'center'}}>
+      <AbsoluteFill style={{top: 920 - layoutOf(edl).shift / 2, alignItems: 'center'}}>
         <div style={{...line(0), fontFamily: sf, fontWeight: 600, fontSize: 40, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.86)'}}>{fx.title}</div>
         <div style={{...line(1), fontFamily: edl.theme.serif, fontStyle: 'italic', fontSize: 138, lineHeight: 1.0, color: acc, marginTop: 6}}>{fx.name}</div>
         <div style={{...line(2), fontFamily: sf, fontWeight: 400, fontSize: 32, color: 'rgba(255,255,255,0.62)', marginTop: 10}}>{fx.pill}</div>

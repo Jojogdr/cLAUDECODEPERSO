@@ -1,5 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig, Easing} from 'remotion';
+import {Reel} from '../engine/Reel';
+import type {Edl} from '../engine/types';
 
 /* =====================================================================
    Platform preview — the finished reel shown as it will look in the app,
@@ -19,6 +21,7 @@ export type PreviewProps = {
   likes: string; comments: string; shares: string; saves: string;
   scroll: number;              // seconds of the previous reel before the swipe
   duration: number;            // reel duration (s)
+  edl?: Edl;                   // planche mode: render the live reel instead of the mp4
 };
 
 const FONT = 'Inter, -apple-system, sans-serif';
@@ -204,7 +207,7 @@ export const PlatformPreview: React.FC<PreviewProps> = (p) => {
       </AbsoluteFill>
       <AbsoluteFill style={{transform: `translateY(${y + 1920}px)`}}>
         <Sequence from={S} layout="none">
-          <AbsoluteFill><OffthreadVideo src={staticFile(p.src)} style={{width: '100%', height: '100%', objectFit: 'cover'}} /></AbsoluteFill>
+          <AbsoluteFill>{p.edl ? <Reel edl={p.edl} /> : <OffthreadVideo src={staticFile(p.src)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />}</AbsoluteFill>
         </Sequence>
         {ui(true)}
       </AbsoluteFill>

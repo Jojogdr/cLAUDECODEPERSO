@@ -94,6 +94,7 @@ export type Edl = {
   captionEmph?: string[];      // words shown in serif italic in yass captions
   grade?: string;              // ffmpeg -vf chain applied at the finish step (look / colour)
   fx?: Fx[];                   // punch layer: one literal visual per punchline (src/engine/Fx.tsx)
+  platform?: 'instagram' | 'tiktok' | 'youtube';  // top layout (src/engine/ctx.ts LAYOUT); one master per platform
 };
 
 /* =====================================================================

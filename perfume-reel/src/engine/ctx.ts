@@ -21,3 +21,15 @@ export const camAt = (edl: Edl, t: number) => {
   }
   return v;
 };
+
+/* Per-platform top layout (each app has its own header; the master is rendered once per platform).
+   shift: how far the top band (titles, badges, cards in the upper half) moves up from the 240-px Instagram default.
+   ref / mark: where the reference label and the ALOI mark sit.                                              */
+export const LAYOUT = {
+  instagram: {shift: 50, ref: {left: 96, top: 208}, mark: {right: 250, top: 146}},   // ALOI between "Amis" and the camera
+  tiktok: {shift: 70, ref: {left: 96, top: 184}, mark: {right: 96, top: 176}},        // just under the "Pour toi" tabs
+  youtube: {shift: 120, ref: {left: 66, top: 128}, mark: {right: 330, top: 120}},     // left of the search/camera/⋮ icons
+} as const;
+export const layoutOf = (edl: Edl) => LAYOUT[edl.platform ?? 'instagram'];
+/** moves a y in the upper half of the frame up by the platform shift */
+export const upY = (edl: Edl, y: number) => (y < 760 ? y - layoutOf(edl).shift : y);
