@@ -81,7 +81,8 @@ Reference + calibre/movement + case size/material + scarcity/price + CTA. Produc
 a swipe from a previous reel, so the client sees what the app covers. Props: `out/preview_<platform>.json`
 (`platform`: instagram | tiktok | youtube, handle, caption, music, counts, `scroll`, `duration`); copy the final mp4 to
 `public/preview/`. Render: `npx remotion render src/index.ts PlatformPreview out/apercu_<platform>.mp4 --props=out/preview_<platform>.json`.
-- **Instagram Reels**: top "Reels ⌄ Amis" tabs with + and camera (y ≈ 160–220); right rail heart/comment/repost/send/save/more
+- Generic phone = **iPhone 13** (390×844 pt, status bar 47 pt, bottom tab bar 83 pt): the reel fills the 761 pt above the tab bar → 2.523 px/pt in the 1080×1920 frame, ~48 px cropped per side.
+- **Instagram Reels**: header row centred at y ≈ 165 px ("Reels ⌄  Amis" centred, + left, camera right); right rail heart/comment/repost/send/save/more
   from mid-height (x ≈ 920–1000, y ≈ 1000–1810); avatar + @handle + Suivre (y ≈ 1680), caption + audio line under it; the floating
   tab bar sits below the 9:16 frame; ~54 px cropped per side on tall phones.
 - **TikTok**: LIVE · Explorer · Abonnements · **Pour toi** tabs (y ≈ 110–160); avatar with red + then heart/comment/bookmark/share

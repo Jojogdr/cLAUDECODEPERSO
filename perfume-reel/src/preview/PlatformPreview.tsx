@@ -72,7 +72,9 @@ const Status: React.FC<{y?: number}> = ({y = 0}) => (
   </div>
 );
 
-/* ------------------------------------------------------------ Instagram */
+/* ------------------------------------------------------------ Instagram
+   Generic phone = iPhone 13 (390×844 pt, status bar 47 pt, Instagram tab bar 83 pt). The 9:16 reel fills the
+   761 pt above the tab bar → 2.523 px per pt in our 1080×1920 frame, ~48 px cropped per side.            */
 const IgUi: React.FC<{p: PreviewProps; liked: boolean}> = ({p, liked}) => {
   const u = (pt: number) => 54 + pt * 1.054, v = (pt: number) => pt * 1.054;
   const rail: [keyof typeof I, number, string][] = [['heart', 994, p.likes], ['comment', 1145, p.comments], ['repost', 1302, ''], ['send', 1407, p.shares], ['save', 1563, p.saves], ['more', 1712, '']];
@@ -80,11 +82,13 @@ const IgUi: React.FC<{p: PreviewProps; liked: boolean}> = ({p, liked}) => {
     <AbsoluteFill style={{color: W, fontFamily: FONT, textShadow: sh}}>
       <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 14%, rgba(0,0,0,0) 72%, rgba(0,0,0,0.5) 100%)'}} />
       <Status />
-      <div style={{position: 'absolute', left: u(29), top: v(150)}}><Ic d={I.plus} size={60} stroke={2} /></div>
-      <div style={{position: 'absolute', left: u(213), top: v(150), display: 'flex', alignItems: 'center', gap: 14, fontWeight: 700, fontSize: 52}}>
-        Reels <Ic d={I.chev} size={36} stroke={2.4} /> <span style={{color: 'rgba(255,255,255,0.6)', marginLeft: 18}}>Amis</span>
+      {/* header row, iPhone 13: centre y ≈ 65 pt → 165 px; title centred, + left, camera right */}
+      <div style={{position: 'absolute', left: 0, right: 0, top: 165 - 34, height: 68, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 34, fontWeight: 700, fontSize: 50}}>
+        <span style={{display: 'flex', alignItems: 'center', gap: 10}}>Reels <Ic d={I.chev} size={34} stroke={2.4} /></span>
+        <span style={{color: 'rgba(255,255,255,0.6)'}}>Amis</span>
       </div>
-      <div style={{position: 'absolute', left: u(822), top: v(150)}}><Ic d={I.camera} size={60} /></div>
+      <div style={{position: 'absolute', left: 74, top: 165 - 30}}><Ic d={I.plus} size={60} stroke={2} /></div>
+      <div style={{position: 'absolute', right: 74, top: 165 - 30}}><Ic d={I.camera} size={60} /></div>
       {rail.map(([k, cy, n]) => (
         <div key={k} style={{position: 'absolute', left: u(857) - 60, width: 120, top: v(cy) - 40, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10}}>
           <Ic d={I[k]} size={76} fill={k === 'heart' && liked} style={{color: k === 'heart' && liked ? '#FF3040' : W}} stroke={k === 'more' ? 4 : 1.8} />
