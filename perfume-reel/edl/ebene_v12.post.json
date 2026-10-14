@@ -1,0 +1,40 @@
+{
+ "fps": 30,
+ "cuts": [
+  {
+   "at": 2.1,
+   "name": "CrossZoom",
+   "frames": 10,
+   "flash": 0.3
+  },
+  {
+   "at": 11.3,
+   "name": "FilmBurn",
+   "frames": 12,
+   "leak": 0.2
+  },
+  {
+   "at": 14.4,
+   "name": "CrossZoom",
+   "frames": 8,
+   "flash": 0.3
+  },
+  {
+   "at": 17.78,
+   "name": "DreamyZoom",
+   "frames": 10,
+   "leak": 0.3
+  },
+  {
+   "at": 19.49,
+   "name": "DirectionalScaled",
+   "frames": 12,
+   "params": {
+    "direction": [
+     0,
+     1
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,1530 @@
+{
+ "id": "ebene_v12",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 22.167,
+ "theme": {
+  "ink": "#141210",
+  "gold": "#B8843A",
+  "goldLight": "#F0BE6A",
+  "paper": "#F2EEE8",
+  "sans": "\"Inter Tight\", sans-serif",
+  "serif": "\"Instrument Serif\", serif",
+  "mono": "\"IBM Plex Mono\", monospace",
+  "captionStyle": "yass",
+  "captionY": 1180,
+  "captionSize": 52
+ },
+ "base": {
+  "src": "base_v7.mp4",
+  "origin": "50% 32%"
+ },
+ "voice": "voice_v7.wav",
+ "sfxStem": "sfx_stem_ebene_v12.wav",
+ "music": {
+  "src": "music.wav",
+  "offset": 13.45,
+  "db": -18
+ },
+ "words": [
+  {
+   "w": "les",
+   "s": 0.05,
+   "e": 0.28
+  },
+  {
+   "w": "gens",
+   "s": 0.28,
+   "e": 0.36
+  },
+  {
+   "w": "ne",
+   "s": 0.36,
+   "e": 0.46
+  },
+  {
+   "w": "vont",
+   "s": 0.46,
+   "e": 0.62
+  },
+  {
+   "w": "pas",
+   "s": 0.62,
+   "e": 0.78
+  },
+  {
+   "w": "l'oublier.",
+   "s": 0.78,
+   "e": 0.95
+  },
+  {
+   "w": "c'est",
+   "s": 1.01,
+   "e": 1.17
+  },
+  {
+   "w": "le",
+   "s": 1.17,
+   "e": 1.33
+  },
+  {
+   "w": "Tom",
+   "s": 1.33,
+   "e": 1.65
+  },
+  {
+   "w": "Ford",
+   "s": 1.65,
+   "e": 2.1
+  },
+  {
+   "w": "Ébène",
+   "s": 2.1,
+   "e": 2.33
+  },
+  {
+   "w": "Fumé.",
+   "s": 2.48,
+   "e": 2.78
+  },
+  {
+   "w": "c'est",
+   "s": 2.83,
+   "e": 2.96
+  },
+  {
+   "w": "un",
+   "s": 2.96,
+   "e": 3.18
+  },
+  {
+   "w": "parfum",
+   "s": 3.18,
+   "e": 3.4
+  },
+  {
+   "w": "qui",
+   "s": 3.4,
+   "e": 3.48
+  },
+  {
+   "w": "est",
+   "s": 3.45,
+   "e": 3.58
+  },
+  {
+   "w": "dédié",
+   "s": 3.58,
+   "e": 3.82
+  },
+  {
+   "w": "à",
+   "s": 3.82,
+   "e": 3.92
+  },
+  {
+   "w": "la",
+   "s": 3.92,
+   "e": 4.06
+  },
+  {
+   "w": "gente",
+   "s": 4.25,
+   "e": 4.61
+  },
+  {
+   "w": "masculine,",
+   "s": 4.61,
+   "e": 4.86
+  },
+  {
+   "w": "quand",
+   "s": 5.12,
+   "e": 5.24
+  },
+  {
+   "w": "c'est",
+   "s": 5.24,
+   "e": 5.39
+  },
+  {
+   "w": "une",
+   "s": 5.39,
+   "e": 5.59
+  },
+  {
+   "w": "femme",
+   "s": 5.59,
+   "e": 5.87
+  },
+  {
+   "w": "qui",
+   "s": 5.87,
+   "e": 5.98
+  },
+  {
+   "w": "le",
+   "s": 6.08,
+   "e": 6.2
+  },
+  {
+   "w": "porte,",
+   "s": 6.2,
+   "e": 6.3
+  },
+  {
+   "w": "ça",
+   "s": 6.34,
+   "e": 6.7
+  },
+  {
+   "w": "rajoute",
+   "s": 6.7,
+   "e": 6.94
+  },
+  {
+   "w": "un",
+   "s": 6.94,
+   "e": 7.24
+  },
+  {
+   "w": "petit",
+   "s": 7.24,
+   "e": 7.52
+  },
+  {
+   "w": "truc",
+   "s": 7.52,
+   "e": 7.74
+  },
+  {
+   "w": "en",
+   "s": 7.74,
+   "e": 7.88
+  },
+  {
+   "w": "plus.",
+   "s": 7.88,
+   "e": 8.02
+  },
+  {
+   "w": "c'est",
+   "s": 8.07,
+   "e": 8.25
+  },
+  {
+   "w": "son",
+   "s": 8.25,
+   "e": 8.49
+  },
+  {
+   "w": "côté",
+   "s": 8.49,
+   "e": 8.83
+  },
+  {
+   "w": "boisé,",
+   "s": 8.83,
+   "e": 9.48
+  },
+  {
+   "w": "assez",
+   "s": 9.48,
+   "e": 9.75
+  },
+  {
+   "w": "mystérieux,",
+   "s": 9.83,
+   "e": 10.09
+  },
+  {
+   "w": "avec",
+   "s": 10.29,
+   "e": 10.59
+  },
+  {
+   "w": "beaucoup",
+   "s": 10.61,
+   "e": 10.77
+  },
+  {
+   "w": "de",
+   "s": 10.77,
+   "e": 10.87
+  },
+  {
+   "w": "caractère.",
+   "s": 11.04,
+   "e": 11.16
+  },
+  {
+   "w": "des",
+   "s": 11.2,
+   "e": 11.52
+  },
+  {
+   "w": "notes",
+   "s": 11.77,
+   "e": 12.06
+  },
+  {
+   "w": "ambrées",
+   "s": 12.06,
+   "e": 12.44
+  },
+  {
+   "w": "avec",
+   "s": 12.44,
+   "e": 12.62
+  },
+  {
+   "w": "du",
+   "s": 12.62,
+   "e": 12.76
+  },
+  {
+   "w": "bois",
+   "s": 12.76,
+   "e": 12.86
+  },
+  {
+   "w": "de",
+   "s": 12.86,
+   "e": 12.98
+  },
+  {
+   "w": "santal,",
+   "s": 12.98,
+   "e": 13.32
+  },
+  {
+   "w": "donc",
+   "s": 13.32,
+   "e": 13.54
+  },
+  {
+   "w": "quelque",
+   "s": 13.54,
+   "e": 13.7
+  },
+  {
+   "w": "chose",
+   "s": 13.7,
+   "e": 13.84
+  },
+  {
+   "w": "de",
+   "s": 13.84,
+   "e": 14.06
+  },
+  {
+   "w": "beaucoup",
+   "s": 14.06,
+   "e": 14.16
+  },
+  {
+   "w": "plus",
+   "s": 14.27,
+   "e": 14.6
+  },
+  {
+   "w": "fort,",
+   "s": 14.6,
+   "e": 14.96
+  },
+  {
+   "w": "plus",
+   "s": 15.02,
+   "e": 15.22
+  },
+  {
+   "w": "puissant.",
+   "s": 15.22,
+   "e": 15.64
+  },
+  {
+   "w": "Et",
+   "s": 15.64,
+   "e": 15.86
+  },
+  {
+   "w": "sur",
+   "s": 15.86,
+   "e": 16.0
+  },
+  {
+   "w": "une",
+   "s": 16.0,
+   "e": 16.12
+  },
+  {
+   "w": "femme",
+   "s": 16.12,
+   "e": 16.38
+  },
+  {
+   "w": "notamment,",
+   "s": 16.38,
+   "e": 16.62
+  },
+  {
+   "w": "je",
+   "s": 16.62,
+   "e": 16.7
+  },
+  {
+   "w": "trouve",
+   "s": 16.7,
+   "e": 16.86
+  },
+  {
+   "w": "que",
+   "s": 16.86,
+   "e": 16.98
+  },
+  {
+   "w": "c'est",
+   "s": 16.99,
+   "e": 17.21
+  },
+  {
+   "w": "plus",
+   "s": 17.21,
+   "e": 17.48
+  },
+  {
+   "w": "percutant.",
+   "s": 17.63,
+   "e": 17.73
+  },
+  {
+   "w": "qui",
+   "s": 17.79,
+   "e": 18.05
+  },
+  {
+   "w": "laisse",
+   "s": 18.16,
+   "e": 18.29
+  },
+  {
+   "w": "une",
+   "s": 18.29,
+   "e": 18.49
+  },
+  {
+   "w": "empreinte",
+   "s": 18.74,
+   "e": 19.0
+  },
+  {
+   "w": "sans",
+   "s": 19.0,
+   "e": 19.13
+  },
+  {
+   "w": "en",
+   "s": 19.13,
+   "e": 19.22
+  },
+  {
+   "w": "faire",
+   "s": 19.22,
+   "e": 19.32
+  },
+  {
+   "w": "trop.",
+   "s": 19.32,
+   "e": 19.48
+  },
+  {
+   "w": "celui-ci,",
+   "s": 19.5,
+   "e": 20.18
+  },
+  {
+   "w": "c'est",
+   "s": 20.18,
+   "e": 20.32
+  },
+  {
+   "w": "ma",
+   "s": 20.32,
+   "e": 20.54
+  },
+  {
+   "w": "meilleure",
+   "s": 20.54,
+   "e": 20.88
+  },
+  {
+   "w": "recommandation.",
+   "s": 20.88,
+   "e": 21.27
+  }
+ ],
+ "camera": [
+  [
+   0.0,
+   1.175,
+   0.01
+  ],
+  [
+   0.02,
+   1.05,
+   0.2
+  ],
+  [
+   0.25,
+   1.065,
+   0.5
+  ],
+  [
+   0.78,
+   1.09,
+   0.12
+  ],
+  [
+   2.83,
+   1.0,
+   0.01
+  ],
+  [
+   2.86,
+   1.03,
+   1.714
+  ],
+  [
+   4.61,
+   1.05,
+   0.15
+  ],
+  [
+   5.01,
+   1.015,
+   0.01
+  ],
+  [
+   5.59,
+   1.05,
+   0.15
+  ],
+  [
+   7.52,
+   1.08,
+   0.15
+  ],
+  [
+   8.03,
+   1.0,
+   0.01
+  ],
+  [
+   9.83,
+   1.05,
+   0.15
+  ],
+  [
+   10.77,
+   1.08,
+   0.15
+  ],
+  [
+   13.32,
+   1.0,
+   0.01
+  ],
+  [
+   13.35,
+   1.02,
+   1.143
+  ],
+  [
+   15.62,
+   1.0,
+   0.01
+  ],
+  [
+   15.65,
+   1.03,
+   1.714
+  ],
+  [
+   17.32,
+   1.08,
+   0.15
+  ]
+ ],
+ "walls": [
+  {
+   "from": 0.0,
+   "to": 0.95,
+   "clip": "wall_hook.webm",
+   "clipFrom": 0.0,
+   "bg": {
+    "src": "",
+    "css": "radial-gradient(ellipse at 50% 30%, #6B4420 0%, #1C120A 72%)"
+   },
+   "texts": [],
+   "captions": true
+  },
+  {
+   "from": 4.28,
+   "to": 5.01,
+   "clip": "wall_v7a.webm",
+   "clipFrom": 4.28,
+   "bg": {
+    "src": "",
+    "css": "linear-gradient(165deg, #3C5873 0%, #142130 100%)"
+   },
+   "texts": [],
+   "captions": true,
+   "enter": "scan",
+   "fadeOut": 0.001
+  },
+  {
+   "from": 5.01,
+   "to": 5.12,
+   "clip": "wall_v7b.webm",
+   "clipFrom": 5.01,
+   "bg": {
+    "src": "",
+    "css": "linear-gradient(165deg, #3C5873 0%, #142130 100%)"
+   },
+   "texts": [],
+   "captions": true,
+   "enter": "fade",
+   "fadeIn": 0.001,
+   "fadeOut": 0.001
+  },
+  {
+   "from": 5.12,
+   "to": 6.34,
+   "clip": "wall_v7b.webm",
+   "clipFrom": 5.01,
+   "bg": {
+    "src": "",
+    "css": "linear-gradient(165deg, #D08A5C 0%, #6A2E1E 100%)"
+   },
+   "texts": [],
+   "captions": true,
+   "enter": "scan"
+  },
+  {
+   "from": 8.83,
+   "to": 9.48,
+   "clip": "wall_body1.webm",
+   "clipFrom": 8.83,
+   "bg": {
+    "src": "img/p3.jpg",
+    "pos": "30% 50%",
+    "dark": 0.25,
+    "zoom": [
+     1.3,
+     1.2
+    ]
+   },
+   "texts": [],
+   "captions": true,
+   "enter": "scan"
+  },
+  {
+   "from": 9.48,
+   "to": 10.29,
+   "clip": "wall_body1.webm",
+   "clipFrom": 8.83,
+   "bg": {
+    "src": "broll/smoke.mp4",
+    "video": true,
+    "offset": 3.2,
+    "zoom": [
+     1.0,
+     1.08
+    ],
+    "dark": 0.1
+   },
+   "texts": [],
+   "captions": true
+  },
+  {
+   "from": 16.98,
+   "to": 17.78,
+   "clip": "wall_v7c.webm",
+   "clipFrom": 16.98,
+   "bg": {
+    "src": "",
+    "css": "radial-gradient(ellipse at 50% 35%, #5A3414 0%, #0C0805 75%)"
+   },
+   "texts": [],
+   "enter": "scan",
+   "captions": true
+  }
+ ],
+ "blocks": [],
+ "scenes": [
+  {
+   "kind": "media",
+   "from": 2.1,
+   "to": 2.83,
+   "enter": "cut",
+   "exit": "cut",
+   "media": {
+    "src": "img/p6.jpg",
+    "pos": "50% 35%",
+    "zoom": [
+     1.18,
+     1.08
+    ]
+   }
+  },
+  {
+   "kind": "media",
+   "to": 13.32,
+   "enter": "cut",
+   "exit": "cut",
+   "media": {
+    "src": "broll/ink2.mp4",
+    "video": true,
+    "offset": 13,
+    "zoom": [
+     1.1,
+     1.2
+    ],
+    "filter": "saturate(0.78) brightness(0.9)"
+   },
+   "dark": 0.4,
+   "from": 11.3
+  },
+  {
+   "kind": "media",
+   "from": 14.4,
+   "to": 15.62,
+   "enter": "cut",
+   "media": {
+    "src": "img/p2.jpg",
+    "width": 1920,
+    "left": -420,
+    "zoom": [
+     1.1,
+     1.13
+    ]
+   },
+   "shade": [
+    0.35,
+    0.7
+   ],
+   "punches": [
+    14.6,
+    15.02
+   ],
+   "blocks": [],
+   "exit": "cut"
+  },
+  {
+   "kind": "paper",
+   "from": 17.78,
+   "to": 19.49,
+   "enter": "cut",
+   "exit": "cut",
+   "tone": "dark"
+  },
+  {
+   "kind": "paper",
+   "from": 19.49,
+   "to": 22.167,
+   "enter": "cut",
+   "exit": "cut",
+   "tone": "dark"
+  }
+ ],
+ "overlays": [
+  {
+   "kind": "flash",
+   "at": 17.63,
+   "dur": 0.18
+  }
+ ],
+ "sfx": [
+  [
+   "perso/ping-iphone",
+   0.15,
+   -23,
+   "peak"
+  ],
+  [
+   "tiktok-pack3/glass-shine",
+   0.74,
+   -27,
+   "peak"
+  ],
+  [
+   "ui-pack/01-notifications/notification-rapide",
+   0.75,
+   -24,
+   "peak"
+  ],
+  [
+   "ios18/01-notifications/message-recu",
+   1.35,
+   -24,
+   "peak"
+  ],
+  [
+   "cc0/whoosh-pass-fast",
+   2.1,
+   -24,
+   "peak"
+  ],
+  [
+   "ios18/05-interface/obturateur",
+   2.11,
+   -28,
+   "peak"
+  ],
+  [
+   "macos/glass",
+   2.15,
+   -24,
+   "peak"
+  ],
+  [
+   "tiktok-pack1/mac-typing",
+   2.33,
+   -31,
+   "peak"
+  ],
+  [
+   "tiktok-pack1/mac-typing",
+   2.35,
+   -31,
+   "peak"
+  ],
+  [
+   "tiktok-pack1/mac-typing",
+   2.45,
+   -32,
+   "peak"
+  ],
+  [
+   "tiktok-pack1/mac-typing",
+   2.47,
+   -32,
+   "peak"
+  ],
+  [
+   "tiktok-pack1/mac-typing",
+   2.57,
+   -32,
+   "peak"
+  ],
+  [
+   "tiktok-pack1/mac-typing",
+   2.59,
+   -32,
+   "peak"
+  ],
+  [
+   "cc0/transition-sweep",
+   4.28,
+   -26,
+   "peak"
+  ],
+  [
+   "macos/pop",
+   4.31,
+   -23,
+   "peak"
+  ],
+  [
+   "ui-pack/04-interface/ui-serie-b-05",
+   4.4,
+   -26,
+   "peak"
+  ],
+  [
+   "cc0/whoosh-high",
+   5.12,
+   -26,
+   "peak"
+  ],
+  [
+   "macos/tink",
+   5.61,
+   -25,
+   "peak"
+  ],
+  [
+   "ui-pack/04-interface/interaction-simple-02",
+   5.68,
+   -27,
+   "peak"
+  ],
+  [
+   "macos/pop",
+   7.5,
+   -22,
+   "peak"
+  ],
+  [
+   "tiktok-pack3/glass-shine",
+   7.6,
+   -26,
+   "peak"
+  ],
+  [
+   "cc0/transition-sweep",
+   8.83,
+   -26,
+   "peak"
+  ],
+  [
+   "ios18/05-interface/verrouillage-clic",
+   8.86,
+   -25,
+   "peak"
+  ],
+  [
+   "ui-pack/04-interface/ui-serie-b-05",
+   8.95,
+   -27,
+   "peak"
+  ],
+  [
+   "cc0/whoosh-tight",
+   9.48,
+   -26,
+   "peak"
+  ],
+  [
+   "macos/pop",
+   9.85,
+   -23,
+   "peak"
+  ],
+  [
+   "ui-pack/04-interface/ui-03",
+   9.92,
+   -29,
+   "peak"
+  ],
+  [
+   "macos/glass",
+   10.76,
+   -24,
+   "peak"
+  ],
+  [
+   "uisfx/swipe-minimal",
+   10.94,
+   -29,
+   "start"
+  ],
+  [
+   "cc0/transition-sweep",
+   11.3,
+   -25,
+   "peak"
+  ],
+  [
+   "uisfx/swipe-soft",
+   11.98,
+   -25,
+   "start"
+  ],
+  [
+   "tiktok-pack3/glass-shine",
+   12.02,
+   -27,
+   "peak"
+  ],
+  [
+   "ui-pack/04-interface/ui-serie-b-05",
+   12.2,
+   -26,
+   "peak"
+  ],
+  [
+   "uisfx/swipe-soft",
+   12.78,
+   -25,
+   "start"
+  ],
+  [
+   "ui-pack/04-interface/ui-serie-b-05",
+   13.0,
+   -27,
+   "peak"
+  ],
+  [
+   "cc0/whoosh-pass-fast",
+   14.4,
+   -24,
+   "peak"
+  ],
+  [
+   "cc0/type-tick",
+   14.48,
+   -31,
+   "peak"
+  ],
+  [
+   "cc0/type-tick",
+   14.562,
+   -31,
+   "peak"
+  ],
+  [
+   "macos/pop",
+   14.62,
+   -22,
+   "peak"
+  ],
+  [
+   "cc0/type-tick",
+   14.644,
+   -31,
+   "peak"
+  ],
+  [
+   "cc0/type-tick",
+   14.726,
+   -31,
+   "peak"
+  ],
+  [
+   "cc0/type-tick",
+   14.808,
+   -31,
+   "peak"
+  ],
+  [
+   "cc0/type-tick",
+   14.89,
+   -31,
+   "peak"
+  ],
+  [
+   "cc0/type-tick",
+   14.972,
+   -31,
+   "peak"
+  ],
+  [
+   "cc0/type-tick",
+   15.054,
+   -31,
+   "peak"
+  ],
+  [
+   "ios18/05-interface/verrouillage-clic",
+   15.06,
+   -23,
+   "peak"
+  ],
+  [
+   "cc0/type-tick",
+   15.136,
+   -31,
+   "peak"
+  ],
+  [
+   "cc0/type-tick",
+   15.218,
+   -31,
+   "peak"
+  ],
+  [
+   "cc0/whoosh-high",
+   16.98,
+   -26,
+   "peak"
+  ],
+  [
+   "macos/pop",
+   17.34,
+   -22,
+   "peak"
+  ],
+  [
+   "tiktok-pack1/metallic-riser",
+   17.63,
+   -23,
+   "peak"
+  ],
+  [
+   "ios18/05-interface/obturateur",
+   17.63,
+   -23,
+   "peak"
+  ],
+  [
+   "cc0/whoosh-pass-slow",
+   17.78,
+   -25,
+   "peak"
+  ],
+  [
+   "uisfx/swipe-minimal",
+   17.86,
+   -28,
+   "start"
+  ],
+  [
+   "ios18/05-interface/nouveau-souvenir",
+   18.27,
+   -26,
+   "peak"
+  ],
+  [
+   "cc0/whoosh-pass-fast",
+   19.49,
+   -24,
+   "peak"
+  ],
+  [
+   "ios18/03-validation/apple-pay-succes",
+   20.62,
+   -25,
+   "peak"
+  ]
+ ],
+ "captionEmph": [
+  "Ford",
+  "Tom",
+  "côté",
+  "dédié",
+  "meilleure",
+  "notamment",
+  "parfum",
+  "porte",
+  "rajoute",
+  "recommandation",
+  "santal",
+  "trouve"
+ ],
+ "types": [
+  {
+   "from": 0.7,
+   "to": 1.3,
+   "y": 1180,
+   "lines": [
+    {
+     "text": "l'oublier.",
+     "font": "serif",
+     "size": 172,
+     "at": 0.72,
+     "color": "#F0BE6A"
+    }
+   ],
+   "exit": "cut",
+   "scrim": true
+  },
+  {
+   "from": 2.1,
+   "to": 2.83,
+   "y": 1270,
+   "lines": [
+    {
+     "text": "Ébène Fumé.",
+     "font": "serif",
+     "size": 161,
+     "at": 2.14,
+     "color": "#fff"
+    }
+   ],
+   "exit": "cut"
+  },
+  {
+   "from": 4.28,
+   "to": 5.12,
+   "y": 300,
+   "lines": [
+    {
+     "text": "POUR HOMME.",
+     "font": "caps",
+     "size": 90,
+     "at": 4.3,
+     "anim": "slam",
+     "tracking": -0.045
+    }
+   ],
+   "align": "left",
+   "x": 96,
+   "behind": false,
+   "exit": "cut"
+  },
+  {
+   "from": 5.59,
+   "to": 6.34,
+   "y": 300,
+   "lines": [
+    {
+     "text": "UNE FEMME.",
+     "font": "caps",
+     "size": 97,
+     "at": 5.6,
+     "anim": "slam",
+     "tracking": -0.045,
+     "color": "#F0BE6A"
+    }
+   ],
+   "align": "left",
+   "x": 96,
+   "behind": false,
+   "exit": "cut"
+  },
+  {
+   "from": 7.45,
+   "to": 8.03,
+   "y": 300,
+   "lines": [
+    {
+     "text": "+1 TRUC EN PLUS.",
+     "font": "caps",
+     "size": 69,
+     "at": 7.5,
+     "anim": "slam",
+     "tracking": -0.045,
+     "color": "#F0BE6A"
+    }
+   ],
+   "align": "left",
+   "x": 96
+  },
+  {
+   "from": 8.83,
+   "to": 9.48,
+   "y": 300,
+   "lines": [
+    {
+     "text": "BOISÉ.",
+     "font": "caps",
+     "size": 117,
+     "at": 8.85,
+     "anim": "slam",
+     "tracking": -0.045,
+     "color": "#F0BE6A"
+    }
+   ],
+   "align": "left",
+   "x": 96,
+   "behind": false,
+   "exit": "cut"
+  },
+  {
+   "from": 9.83,
+   "to": 10.29,
+   "y": 300,
+   "lines": [
+    {
+     "text": "MYSTÉRIEUX.",
+     "font": "caps",
+     "size": 87,
+     "at": 9.84,
+     "anim": "slam",
+     "tracking": -0.045
+    }
+   ],
+   "align": "left",
+   "x": 96,
+   "behind": false,
+   "exit": "cut"
+  },
+  {
+   "from": 10.29,
+   "to": 11.3,
+   "y": 1120,
+   "lines": [
+    {
+     "text": "beaucoup de",
+     "font": "sans",
+     "size": 50,
+     "at": 10.61
+    },
+    {
+     "text": "caractère.",
+     "font": "serif",
+     "size": 164,
+     "at": 10.74,
+     "color": "#F0BE6A",
+     "underlineAt": 10.95
+    }
+   ]
+  },
+  {
+   "from": 11.3,
+   "to": 13.32,
+   "y": 300,
+   "lines": [
+    {
+     "text": "des notes",
+     "font": "sans",
+     "size": 54,
+     "at": 11.32
+    },
+    {
+     "text": "ambrées",
+     "font": "serif",
+     "size": 172,
+     "at": 12.0,
+     "color": "#F0BE6A"
+    }
+   ],
+   "exit": "cut",
+   "scrim": false
+  },
+  {
+   "from": 14.4,
+   "to": 15.02,
+   "y": 330,
+   "lines": [
+    {
+     "text": "FORT.",
+     "font": "caps",
+     "size": 148,
+     "at": 14.6,
+     "anim": "slam",
+     "tracking": -0.045
+    }
+   ],
+   "align": "left",
+   "x": 96,
+   "exit": "cut"
+  },
+  {
+   "from": 15.02,
+   "to": 15.62,
+   "y": 330,
+   "lines": [
+    {
+     "text": "PUIS-",
+     "font": "caps",
+     "size": 133,
+     "at": 15.04,
+     "anim": "slam",
+     "tracking": -0.045,
+     "color": "#F0BE6A"
+    },
+    {
+     "text": "SANT.",
+     "font": "caps",
+     "size": 133,
+     "at": 15.08,
+     "anim": "slam",
+     "tracking": -0.045,
+     "color": "#F0BE6A"
+    }
+   ],
+   "align": "left",
+   "x": 96,
+   "exit": "cut",
+   "gap": 0
+  },
+  {
+   "from": 16.98,
+   "to": 17.78,
+   "y": 300,
+   "lines": [
+    {
+     "text": "PERCUTANT.",
+     "font": "caps",
+     "size": 103,
+     "at": 17.32,
+     "anim": "slam",
+     "tracking": -0.045,
+     "color": "#F0BE6A"
+    }
+   ],
+   "align": "left",
+   "x": 96,
+   "behind": false,
+   "exit": "cut"
+  },
+  {
+   "from": 17.78,
+   "to": 19.49,
+   "y": 1080,
+   "lines": [
+    {
+     "text": "qui laisse",
+     "font": "sans",
+     "size": 52,
+     "at": 17.82
+    },
+    {
+     "text": "une empreinte",
+     "font": "serif",
+     "size": 139,
+     "at": 18.25,
+     "color": "#F0BE6A"
+    },
+    {
+     "text": "sans en faire trop.",
+     "font": "sans",
+     "size": 45,
+     "at": 19.0
+    }
+   ],
+   "exit": "cut",
+   "scrim": false
+  }
+ ],
+ "cards": [
+  {
+   "to": 13.32,
+   "at": 12.06,
+   "x": 300,
+   "y": 640,
+   "w": 360,
+   "image": "img/p3.jpg",
+   "imagePos": "82% 78%",
+   "imageH": 300,
+   "label": "Note de fond",
+   "title": "Ambre",
+   "enter": "left",
+   "rot": -4,
+   "from": 11.3
+  },
+  {
+   "to": 13.32,
+   "at": 12.9,
+   "x": 720,
+   "y": 700,
+   "w": 360,
+   "image": "img/p3.jpg",
+   "imagePos": "18% 82%",
+   "imageH": 300,
+   "label": "Note de cœur",
+   "title": "Santal",
+   "enter": "right",
+   "rot": 3,
+   "from": 11.3
+  }
+ ],
+ "grade": "eq=contrast=1.06:saturation=0.93,colorbalance=rs=0.025:bs=-0.03:rh=0.02:bh=-0.025,curves=all='0/0.02 0.5/0.49 1/0.975',vignette=PI/5.5,noise=c0s=7:c0f=t",
+ "fx": [
+  {
+   "kind": "brand",
+   "from": 0,
+   "to": 22.167,
+   "label": "TOM FORD · ÉBÈNE FUMÉ",
+   "mark": "ALOI",
+   "accent": "#F0BE6A",
+   "top": 240
+  },
+  {
+   "kind": "notifs",
+   "from": 0.1,
+   "to": 2.05,
+   "y": 300,
+   "items": [
+    {
+     "at": 0.15,
+     "title": "Camille",
+     "text": "C'est quoi ton parfum ??",
+     "time": "maintenant"
+    },
+    {
+     "at": 0.75,
+     "title": "Inès",
+     "text": "Tu sentais trop bon hier soir",
+     "time": "2 min"
+    },
+    {
+     "at": 1.35,
+     "title": "Maman",
+     "text": "Il est où ton parfum ? Je le pique",
+     "time": "5 min",
+     "app": "whatsapp"
+    }
+   ]
+  },
+  {
+   "kind": "badge",
+   "from": 4.36,
+   "to": 5.12,
+   "x": 820,
+   "y": 600,
+   "size": 180,
+   "icon": "tie",
+   "ring": "#9FB3C6",
+   "color": "#1C2733",
+   "bg": "#E4ECF2"
+  },
+  {
+   "kind": "badge",
+   "from": 5.66,
+   "to": 6.34,
+   "x": 820,
+   "y": 600,
+   "size": 180,
+   "icon": "lips",
+   "ring": "#F0BE6A",
+   "color": "#D9364A",
+   "bg": "#F7E6D6"
+  },
+  {
+   "kind": "badge",
+   "from": 8.92,
+   "to": 9.48,
+   "x": 820,
+   "y": 600,
+   "size": 180,
+   "image": "img/p3.jpg",
+   "pos": "22% 82%",
+   "ring": "#F0BE6A"
+  },
+  {
+   "kind": "badge",
+   "from": 9.9,
+   "to": 10.29,
+   "x": 820,
+   "y": 600,
+   "size": 180,
+   "text": "?",
+   "ring": "#F0BE6A",
+   "bg": "#141210"
+  },
+  {
+   "kind": "gauge",
+   "from": 14.42,
+   "to": 15.62,
+   "y": 600,
+   "label": "PUISSANCE",
+   "fillFrom": 14.48,
+   "fillTo": 15.3,
+   "accent": "#F0BE6A"
+  },
+  {
+   "kind": "burst",
+   "from": 17.6,
+   "to": 18.0,
+   "at": 17.63,
+   "x": 540,
+   "y": 470,
+   "color": "#F0BE6A"
+  },
+  {
+   "kind": "fingerprint",
+   "from": 17.8,
+   "to": 19.49,
+   "y": 330,
+   "size": 520,
+   "color": "#F0BE6A"
+  },
+  {
+   "kind": "endcard",
+   "from": 19.49,
+   "to": 22.167,
+   "image": "img/p4_cut.png",
+   "title": "Tom Ford",
+   "name": "Ébène Fumé.",
+   "pill": "Eau de parfum",
+   "cta": "Écrire sur WhatsApp",
+   "small": "aloi.watch",
+   "accent": "#F0BE6A",
+   "ctaAt": 20.6
+  }
+ ]
+}

@@ -19,25 +19,42 @@ const out = (t: number, to: number, d = 0.16) => interpolate(t, [to - d, to], [1
 const BrandFrame: React.FC<{fx: Extract<Fx, {kind: 'brand'}>}> = ({fx}) => {
   const edl = useEdl();
   const c = fx.color ?? '#fff';
-  const top = fx.top ?? 100;   // between the phone status bar and Instagram's "Reels" header
+  const top = fx.top ?? 240;   // just under Instagram's header; higher up the iPhone status bar and the Reels tabs cover it
   const sh = '0 1px 8px rgba(0,0,0,0.45)';
   return (
     <AbsoluteFill style={{pointerEvents: 'none'}}>
-      <div style={{position: 'absolute', left: 64, top: top + 6, fontFamily: edl.theme.mono, fontWeight: 500, fontSize: 25, letterSpacing: '0.16em', color: c, textShadow: sh}}>{fx.label}</div>
-      <div style={{position: 'absolute', right: 64, top, fontFamily: edl.theme.sans, fontWeight: 300, fontSize: 38, letterSpacing: '0.08em', color: c, textShadow: sh}}>{fx.mark}</div>
+      <div style={{position: 'absolute', left: 96, top: top + 6, fontFamily: edl.theme.mono, fontWeight: 500, fontSize: 25, letterSpacing: '0.16em', color: c, textShadow: sh}}>{fx.label}</div>
+      <div style={{position: 'absolute', right: 96, top, fontFamily: edl.theme.sans, fontWeight: 300, fontSize: 36, letterSpacing: '0.08em', color: c, textShadow: sh}}>{fx.mark}</div>
     </AbsoluteFill>
   );
 };
 
-/* -------------------------------------- Instagram safe-zone guide (planche only) */
-const SafeZone: React.FC = () => (
-  <AbsoluteFill style={{pointerEvents: 'none'}}>
-    <svg viewBox="0 0 1080 1920" style={{width: '100%', height: '100%'}}>
-      <path fill="rgba(255,40,80,0.18)" fillRule="evenodd" d="M0 0H1080V1920H0Z M91 237H990V997H899V1650H366V1479H91Z" />
-      <path d="M91 237H990V997H899V1650H366V1479H91Z" fill="none" stroke="#ff2850" strokeWidth={4} strokeDasharray="14 10" />
-    </svg>
-  </AbsoluteFill>
-);
+/* ---------------------------- platform UI guide (planche only, never in the video)
+   Instagram Reels: elements measured on an iPhone (Style Lab, Oct 2026) — the 9:16 frame is scaled to run
+   from the top of the screen to the tab bar, which crops ~54 px per side; 1 pt ≈ 1.054 px, x = 54 + 1.054·pt.
+   TikTok (community measurements, 2026): top ~130, right ~140, bottom ~480 px hidden (dashed cyan).
+   Everything that matters must sit in x 96–984 (96–900 below y 1000), y 240–1440.                */
+const UiGuide: React.FC = () => {
+  const u = (pt: number) => 54 + pt * 1.054, v = (pt: number) => pt * 1.054;
+  const ui = 'rgba(255,255,255,0.55)';
+  const box = (x: number, y: number, w: number, h: number, r = 8, fill = ui) => <rect x={x} y={y} width={w} height={h} rx={r} fill={fill} />;
+  const rail = [994, 1145, 1302, 1407, 1563, 1712];
+  return (
+    <AbsoluteFill style={{pointerEvents: 'none'}}>
+      <svg viewBox="0 0 1080 1920" style={{width: '100%', height: '100%'}}>
+        <rect x={0} y={0} width={54} height={1920} fill="rgba(0,0,0,0.45)" /><rect x={1026} y={0} width={54} height={1920} fill="rgba(0,0,0,0.45)" />
+        {box(u(104), v(41), 90, v(43))}{box(u(653), v(45), 200, v(36))}
+        {box(u(213), v(153), 330, v(54))}{box(u(29), v(150), 62, 62, 14)}{box(u(822), v(150), 62, 62, 14)}
+        {rail.map((cy, i) => <circle key={i} cx={u(857)} cy={v(cy)} r={38} fill={ui} />)}
+        <circle cx={u(81)} cy={v(1637)} r={50} fill={ui} />{box(u(148), v(1612), 260, v(51), 12)}{box(u(148) + 280, v(1612), 120, v(51), 14)}
+        {box(u(36), v(1708), 750, v(38), 10)}
+        <circle cx={u(80)} cy={v(1508)} r={50} fill="rgba(255,255,255,0.3)" /><circle cx={u(217)} cy={v(1474)} r={50} fill="rgba(255,255,255,0.3)" />
+        <path d="M0 130H1080 M940 0V1920 M0 1440H1080" stroke="#3EE8FF" strokeWidth={4} strokeDasharray="16 12" fill="none" />
+        <rect x={96} y={240} width={888} height={1200} fill="none" stroke="#7CFF6B" strokeWidth={3} strokeDasharray="6 8" />
+      </svg>
+    </AbsoluteFill>
+  );
+};
 
 /* ------------------------------------------------------------- icons */
 const ICONS: Record<string, React.ReactNode> = {
@@ -98,7 +115,7 @@ const Notifs: React.FC<{fx: Extract<Fx, {kind: 'notifs'}>}> = ({fx}) => {
   const max = fx.max ?? 2;   // keep the face clear: older banners fade out as new ones land
   const shown = arrived.slice(-(max + 1));
   const clk = pop(edl, t, fx.from, 20);
-  const GAP = 178, Y0 = fx.y ?? (fx.lock ? 660 : 250);
+  const GAP = 158, Y0 = fx.y ?? (fx.lock ? 660 : 300);
   const newest = shown[shown.length - 1];
   const qn = newest ? spring({frame: Math.round((t - newest.at) * edl.fps), fps: edl.fps, config: {damping: 24, mass: 0.9, stiffness: 120}}) : 1;
   return (
@@ -114,18 +131,18 @@ const Notifs: React.FC<{fx: Extract<Fx, {kind: 'notifs'}>}> = ({fx}) => {
         const p = spring({frame: Math.round((t - n.at) * edl.fps), fps: edl.fps, config: {damping: 24, mass: 0.9, stiffness: 120}});
         const y = i === 0 ? Y0 : Y0 + (i - 1) * GAP + GAP * qn;  // older ones slide down as the new one lands
         return (
-          <div key={n.at} style={{position: 'absolute', left: 100, right: 100, top: y, padding: '24px 28px 26px', borderRadius: 46,
+          <div key={n.at} style={{position: 'absolute', left: 100, right: 100, top: y, padding: '20px 26px 22px', borderRadius: 42,
             background: 'rgba(246,246,248,0.80)', backdropFilter: 'blur(30px) saturate(1.8)', WebkitBackdropFilter: 'blur(30px) saturate(1.8)',
             border: '1px solid rgba(0,0,0,0.06)', boxShadow: '0 8px 24px rgba(0,0,0,0.14)', display: 'flex', gap: 22, alignItems: 'center',
             opacity: i === 0 ? Math.min(1, p * 1.6) : i >= max ? Math.max(0, 1 - qn * 1.8) : 1 - 0.12 * Math.min(i, 3),
             transform: i === 0 ? `translateY(${(1 - p) * -90}px) scale(${0.96 + 0.04 * p})` : `scale(${1 - 0.03 * Math.min(i, 3)})`}}>
-            <MsgIcon size={80} wa={n.app === 'whatsapp'} />
+            <MsgIcon size={70} wa={n.app === 'whatsapp'} />
             <div style={{flex: 1, minWidth: 0}}>
               <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontFamily: sf, color: '#1d1d1f'}}>
-                <span style={{fontWeight: 600, fontSize: 32, letterSpacing: '-0.01em'}}>{n.title}</span>
-                <span style={{fontWeight: 400, fontSize: 25, color: 'rgba(60,60,67,0.6)'}}>{n.time ?? 'maintenant'}</span>
+                <span style={{fontWeight: 600, fontSize: 29, letterSpacing: '-0.01em'}}>{n.title}</span>
+                <span style={{fontWeight: 400, fontSize: 23, color: 'rgba(60,60,67,0.6)'}}>{n.time ?? 'maintenant'}</span>
               </div>
-              <div style={{fontFamily: sf, fontWeight: 400, fontSize: 31, lineHeight: 1.22, color: '#1d1d1f', marginTop: 2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{n.text}</div>
+              <div style={{fontFamily: sf, fontWeight: 400, fontSize: 28, lineHeight: 1.22, color: '#1d1d1f', marginTop: 2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{n.text}</div>
             </div>
           </div>
         );
@@ -261,11 +278,11 @@ const EndCard: React.FC<{fx: Extract<Fx, {kind: 'endcard'}>}> = ({fx}) => {
   const pb = pop(edl, t, fx.ctaAt ?? fx.from + 1.2, 16);
   return (
     <AbsoluteFill style={{background: 'radial-gradient(ellipse 70% 45% at 50% 34%, #3B2A19 0%, #15100B 60%, #0B0907 100%)'}}>
-      <AbsoluteFill style={{alignItems: 'center', top: 270}}>
-        <Img src={staticFile(fx.image)} style={{height: 600, objectFit: 'contain', filter: 'drop-shadow(3px 5px 30px rgba(0,0,0,0.55))',
+      <AbsoluteFill style={{alignItems: 'center', top: 320}}>
+        <Img src={staticFile(fx.image)} style={{height: 560, objectFit: 'contain', filter: 'drop-shadow(3px 5px 30px rgba(0,0,0,0.55))',
           opacity: Math.min(1, p * 1.4), transform: `translateY(${(1 - p) * 120 + drift}px) scale(${0.94 + 0.06 * p})`}} />
       </AbsoluteFill>
-      <AbsoluteFill style={{top: 935, alignItems: 'center'}}>
+      <AbsoluteFill style={{top: 920, alignItems: 'center'}}>
         <div style={{...line(0), fontFamily: sf, fontWeight: 600, fontSize: 40, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.86)'}}>{fx.title}</div>
         <div style={{...line(1), fontFamily: edl.theme.serif, fontStyle: 'italic', fontSize: 138, lineHeight: 1.0, color: acc, marginTop: 6}}>{fx.name}</div>
         <div style={{...line(2), fontFamily: sf, fontWeight: 400, fontSize: 32, color: 'rgba(255,255,255,0.62)', marginTop: 10}}>{fx.pill}</div>
@@ -291,7 +308,7 @@ export const FxView: React.FC<{fx: Fx}> = ({fx}) => {
     case 'burst': return <Burst fx={fx} />;
     case 'scan': return <Scan fx={fx} />;
     case 'endcard': return <EndCard fx={fx} />;
-    case 'safezone': return <SafeZone />;
+    case 'safezone': return <UiGuide />;
   }
 };
 
