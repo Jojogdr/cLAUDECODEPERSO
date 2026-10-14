@@ -14,6 +14,8 @@ import {ReelV7, DURATION_V7} from './ReelV7';
 import {Reel as EngineReel} from './engine/Reel';
 import type {Edl} from './engine/types';
 import ebeneV7 from '../edl/ebene_v7.json';
+import {GlPost} from './engine/GlPost';
+import type {GlPostProps} from './engine/GlPost';
 
 export const RemotionRoot = () => (
   <>
@@ -27,5 +29,9 @@ export const RemotionRoot = () => (
     <Composition id="Reel" component={EngineReel} fps={30} width={1080} height={1920} durationInFrames={1}
       defaultProps={{edl: ebeneV7 as unknown as Edl}}
       calculateMetadata={({props}) => ({durationInFrames: Math.round(props.edl.duration * props.edl.fps), fps: props.edl.fps, width: props.edl.width, height: props.edl.height})} />
+    {/* Pass 2: GL transitions over a clean render (scripts/render_reel.py) */}
+    <Composition id="GlPost" component={GlPost} fps={30} width={1080} height={1920} durationInFrames={1}
+      defaultProps={{video: '', framesDir: '', fps: 30, duration: 1, cuts: []} as GlPostProps}
+      calculateMetadata={({props}) => ({durationInFrames: Math.round(props.duration * props.fps), fps: props.fps})} />
   </>
 );

@@ -1,0 +1,41 @@
+{
+ "fps": 30,
+ "cuts": [
+  {
+   "at": 0.95,
+   "name": "CrossZoom",
+   "frames": 10,
+   "flash": 0.5,
+   "leak": 0.3
+  },
+  {
+   "at": 8.03,
+   "name": "DreamyZoom",
+   "frames": 12,
+   "leak": 0.25
+  },
+  {
+   "at": 11.3,
+   "name": "FilmBurn",
+   "frames": 12,
+   "leak": 0.2
+  },
+  {
+   "at": 14.4,
+   "name": "CrossZoom",
+   "frames": 8,
+   "flash": 0.4
+  },
+  {
+   "at": 17.78,
+   "name": "LinearBlur",
+   "frames": 10
+  },
+  {
+   "at": 19.49,
+   "name": "DreamyZoom",
+   "frames": 14,
+   "leak": 0.35
+  }
+ ]
+}

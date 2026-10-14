@@ -1,0 +1,1307 @@
+[
+ {
+  "file": "ios18/01-notifications/airdrop-demande.wav",
+  "dur": 0.64,
+  "peak_db": -10.1,
+  "rms_db": -20.9,
+  "transient_s": 0.041,
+  "centroid_hz": 1317,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/01-notifications/email-recu.wav",
+  "dur": 0.83,
+  "peak_db": -8.5,
+  "rms_db": -22.4,
+  "transient_s": 0.14,
+  "centroid_hz": 1855,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/01-notifications/facetime-invitation.wav",
+  "dur": 1.07,
+  "peak_db": -4.4,
+  "rms_db": -20.7,
+  "transient_s": 0.533,
+  "centroid_hz": 726,
+  "low_ratio": 0.106
+ },
+ {
+  "file": "ios18/01-notifications/message-recu.wav",
+  "dur": 0.57,
+  "peak_db": -12.2,
+  "rms_db": -21.7,
+  "transient_s": 0.183,
+  "centroid_hz": 677,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/01-notifications/notification-critique.wav",
+  "dur": 0.83,
+  "peak_db": -1.6,
+  "rms_db": -22.9,
+  "transient_s": 0.426,
+  "centroid_hz": 1586,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/02-envoi/echo-envoi.wav",
+  "dur": 1.14,
+  "peak_db": -3.5,
+  "rms_db": -19.4,
+  "transient_s": 0.141,
+  "centroid_hz": 955,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/02-envoi/echo-reception.wav",
+  "dur": 1.69,
+  "peak_db": -5.6,
+  "rms_db": -19.8,
+  "transient_s": 0.211,
+  "centroid_hz": 685,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/02-envoi/email-envoye.wav",
+  "dur": 1.14,
+  "peak_db": -3.5,
+  "rms_db": -25.0,
+  "transient_s": 0.341,
+  "centroid_hz": 2354,
+  "low_ratio": 0.009
+ },
+ {
+  "file": "ios18/02-envoi/message-envoye.wav",
+  "dur": 0.46,
+  "peak_db": -8.2,
+  "rms_db": -20.8,
+  "transient_s": 0.183,
+  "centroid_hz": 736,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/03-validation/apple-pay-echec.wav",
+  "dur": 0.57,
+  "peak_db": -2.9,
+  "rms_db": -20.6,
+  "transient_s": 0.052,
+  "centroid_hz": 1290,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/03-validation/apple-pay-succes.wav",
+  "dur": 0.77,
+  "peak_db": -4.6,
+  "rms_db": -24.0,
+  "transient_s": 0.174,
+  "centroid_hz": 3963,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/03-validation/coeur-validation.wav",
+  "dur": 0.61,
+  "peak_db": -3.1,
+  "rms_db": -20.7,
+  "transient_s": 0.038,
+  "centroid_hz": 1394,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/03-validation/coeur.wav",
+  "dur": 0.68,
+  "peak_db": -8.2,
+  "rms_db": -25.2,
+  "transient_s": 0.329,
+  "centroid_hz": 2389,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/03-validation/exclamation.wav",
+  "dur": 0.49,
+  "peak_db": -7.0,
+  "rms_db": -22.9,
+  "transient_s": 0.14,
+  "centroid_hz": 1290,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "ios18/03-validation/pouce-leve.wav",
+  "dur": 0.35,
+  "peak_db": -1.5,
+  "rms_db": -17.4,
+  "transient_s": 0.041,
+  "centroid_hz": 1241,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/04-celebration/confettis.wav",
+  "dur": 1.22,
+  "peak_db": -6.4,
+  "rms_db": -26.0,
+  "transient_s": 0.771,
+  "centroid_hz": 5935,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/04-celebration/etincelles.wav",
+  "dur": 3.14,
+  "peak_db": -1.5,
+  "rms_db": -23.6,
+  "transient_s": 1.455,
+  "centroid_hz": 3776,
+  "low_ratio": 0.077
+ },
+ {
+  "file": "ios18/04-celebration/etoile-filante.wav",
+  "dur": 0.39,
+  "peak_db": -3.0,
+  "rms_db": -16.7,
+  "transient_s": 0.106,
+  "centroid_hz": 9751,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/04-celebration/feu-artifice.wav",
+  "dur": 3.07,
+  "peak_db": -1.5,
+  "rms_db": -21.7,
+  "transient_s": 0.396,
+  "centroid_hz": 3385,
+  "low_ratio": 0.346
+ },
+ {
+  "file": "ios18/04-celebration/laser.wav",
+  "dur": 5.25,
+  "peak_db": -1.5,
+  "rms_db": -21.0,
+  "transient_s": 0.391,
+  "centroid_hz": 1677,
+  "low_ratio": 0.808
+ },
+ {
+  "file": "ios18/05-interface/appareil-connecte.wav",
+  "dur": 2.58,
+  "peak_db": -6.0,
+  "rms_db": -23.4,
+  "transient_s": 0.839,
+  "centroid_hz": 1437,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/05-interface/charge-magsafe.wav",
+  "dur": 1.34,
+  "peak_db": -2.2,
+  "rms_db": -22.0,
+  "transient_s": 0.611,
+  "centroid_hz": 1473,
+  "low_ratio": 0.003
+ },
+ {
+  "file": "ios18/05-interface/charge.wav",
+  "dur": 0.74,
+  "peak_db": -5.3,
+  "rms_db": -21.0,
+  "transient_s": 0.106,
+  "centroid_hz": 641,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/05-interface/continuity-camera.wav",
+  "dur": 1.07,
+  "peak_db": -7.4,
+  "rms_db": -23.1,
+  "transient_s": 0.238,
+  "centroid_hz": 1437,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/05-interface/enregistrement-debut.wav",
+  "dur": 0.35,
+  "peak_db": -1.5,
+  "rms_db": -17.0,
+  "transient_s": 0.039,
+  "centroid_hz": 1272,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/05-interface/enregistrement-fin.wav",
+  "dur": 0.37,
+  "peak_db": -1.5,
+  "rms_db": -15.5,
+  "transient_s": 0.134,
+  "centroid_hz": 1137,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/05-interface/namedrop.wav",
+  "dur": 2.78,
+  "peak_db": -8.0,
+  "rms_db": -21.4,
+  "transient_s": 1.841,
+  "centroid_hz": 1632,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "ios18/05-interface/nouveau-souvenir.wav",
+  "dur": 1.98,
+  "peak_db": -5.4,
+  "rms_db": -27.1,
+  "transient_s": 0.167,
+  "centroid_hz": 1698,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/05-interface/obturateur.wav",
+  "dur": 0.49,
+  "peak_db": -2.7,
+  "rms_db": -24.7,
+  "transient_s": 0.287,
+  "centroid_hz": 6822,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/05-interface/rafale-debut.wav",
+  "dur": 0.28,
+  "peak_db": -1.8,
+  "rms_db": -23.6,
+  "transient_s": 0.101,
+  "centroid_hz": 7186,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/05-interface/rafale-fin.wav",
+  "dur": 0.33,
+  "peak_db": -1.5,
+  "rms_db": -26.4,
+  "transient_s": 0.142,
+  "centroid_hz": 7040,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/05-interface/verrouillage-clic.wav",
+  "dur": 0.32,
+  "peak_db": -1.5,
+  "rms_db": -29.8,
+  "transient_s": 0.038,
+  "centroid_hz": 5366,
+  "low_ratio": 0.078
+ },
+ {
+  "file": "ios18/06-telephone/attente.wav",
+  "dur": 0.39,
+  "peak_db": -1.5,
+  "rms_db": -7.7,
+  "transient_s": 0.081,
+  "centroid_hz": 563,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "ios18/06-telephone/fin-appel.wav",
+  "dur": 0.39,
+  "peak_db": -1.5,
+  "rms_db": -7.7,
+  "transient_s": 0.199,
+  "centroid_hz": 569,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "ios18/06-telephone/numerotation.wav",
+  "dur": 3.25,
+  "peak_db": -11.3,
+  "rms_db": -21.2,
+  "transient_s": 0.259,
+  "centroid_hz": 1203,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/06-telephone/occupe.wav",
+  "dur": 0.69,
+  "peak_db": -13.9,
+  "rms_db": -21.4,
+  "transient_s": 0.349,
+  "centroid_hz": 702,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ios18/07-systeme/demarrage.wav",
+  "dur": 1.44,
+  "peak_db": -9.3,
+  "rms_db": -24.8,
+  "transient_s": 0.305,
+  "centroid_hz": 1708,
+  "low_ratio": 0.026
+ },
+ {
+  "file": "ios18/07-systeme/extinction.wav",
+  "dur": 1.14,
+  "peak_db": -10.6,
+  "rms_db": -22.9,
+  "transient_s": 0.35,
+  "centroid_hz": 1409,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "macos/apple-pay-succes.wav",
+  "dur": 1.407,
+  "peak_db": -14.0,
+  "rms_db": -35.6,
+  "transient_s": 0.152,
+  "centroid_hz": 3964,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "macos/glass.wav",
+  "dur": 1.65,
+  "peak_db": -14.1,
+  "rms_db": -31.8,
+  "transient_s": 0.132,
+  "centroid_hz": 5609,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "macos/hero.wav",
+  "dur": 1.057,
+  "peak_db": -5.4,
+  "rms_db": -24.5,
+  "transient_s": 0.196,
+  "centroid_hz": 645,
+  "low_ratio": 0.008
+ },
+ {
+  "file": "macos/imessage-envoi.wav",
+  "dur": 0.494,
+  "peak_db": -10.2,
+  "rms_db": -23.5,
+  "transient_s": 0.231,
+  "centroid_hz": 755,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "macos/pop.wav",
+  "dur": 1.627,
+  "peak_db": -11.1,
+  "rms_db": -37.5,
+  "transient_s": 0.009,
+  "centroid_hz": 922,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "macos/siri-confirme.wav",
+  "dur": 0.582,
+  "peak_db": -7.2,
+  "rms_db": -27.6,
+  "transient_s": 0.012,
+  "centroid_hz": 550,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "macos/siri-debut.wav",
+  "dur": 0.936,
+  "peak_db": -10.7,
+  "rms_db": -25.5,
+  "transient_s": 0.132,
+  "centroid_hz": 458,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "macos/tink.wav",
+  "dur": 0.564,
+  "peak_db": -8.8,
+  "rms_db": -28.7,
+  "transient_s": 0.009,
+  "centroid_hz": 754,
+  "low_ratio": 0.002
+ },
+ {
+  "file": "perso/ping-iphone.mp3",
+  "dur": 4.412,
+  "peak_db": -4.9,
+  "rms_db": -33.8,
+  "transient_s": 1.114,
+  "centroid_hz": 4515,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "perso/ping-iphone.wav",
+  "dur": 4.412,
+  "peak_db": -4.9,
+  "rms_db": -33.8,
+  "transient_s": 1.114,
+  "centroid_hz": 4528,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "tiktok-pack1/camera-click.wav",
+  "dur": 0.17,
+  "peak_db": -0.9,
+  "rms_db": -26.4,
+  "transient_s": 0.101,
+  "centroid_hz": 8693,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "tiktok-pack1/camera-shutter.wav",
+  "dur": 0.2,
+  "peak_db": -0.9,
+  "rms_db": -24.0,
+  "transient_s": 0.019,
+  "centroid_hz": 6505,
+  "low_ratio": 0.022
+ },
+ {
+  "file": "tiktok-pack1/cinematic-impact.wav",
+  "dur": 1.3,
+  "peak_db": -0.9,
+  "rms_db": -9.7,
+  "transient_s": 0.17,
+  "centroid_hz": 227,
+  "low_ratio": 0.996
+ },
+ {
+  "file": "tiktok-pack1/ding.wav",
+  "dur": 0.25,
+  "peak_db": -0.9,
+  "rms_db": -18.4,
+  "transient_s": 0.104,
+  "centroid_hz": 1991,
+  "low_ratio": 0.018
+ },
+ {
+  "file": "tiktok-pack1/gear.wav",
+  "dur": 0.9,
+  "peak_db": -0.9,
+  "rms_db": -23.0,
+  "transient_s": 0.188,
+  "centroid_hz": 5895,
+  "low_ratio": 0.055
+ },
+ {
+  "file": "tiktok-pack1/iphone-charging.wav",
+  "dur": 0.38,
+  "peak_db": -0.9,
+  "rms_db": -26.3,
+  "transient_s": 0.216,
+  "centroid_hz": 7853,
+  "low_ratio": 0.089
+ },
+ {
+  "file": "tiktok-pack1/mac-typing.wav",
+  "dur": 0.14,
+  "peak_db": -0.9,
+  "rms_db": -23.9,
+  "transient_s": 0.109,
+  "centroid_hz": 6439,
+  "low_ratio": 0.215
+ },
+ {
+  "file": "tiktok-pack1/metallic-riser.wav",
+  "dur": 1.92,
+  "peak_db": -0.9,
+  "rms_db": -18.3,
+  "transient_s": 1.116,
+  "centroid_hz": 5034,
+  "low_ratio": 0.578
+ },
+ {
+  "file": "tiktok-pack1/mouse-click.wav",
+  "dur": 0.29,
+  "peak_db": -0.9,
+  "rms_db": -12.6,
+  "transient_s": 0.054,
+  "centroid_hz": 647,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "tiktok-pack1/punch-stop-riser.wav",
+  "dur": 1.54,
+  "peak_db": -0.9,
+  "rms_db": -9.8,
+  "transient_s": 1.28,
+  "centroid_hz": 1923,
+  "low_ratio": 0.981
+ },
+ {
+  "file": "tiktok-pack2/cha-ching-money.wav",
+  "dur": 0.16,
+  "peak_db": -0.9,
+  "rms_db": -12.3,
+  "transient_s": 0.06,
+  "centroid_hz": 1601,
+  "low_ratio": 0.336
+ },
+ {
+  "file": "tiktok-pack2/core-sound.wav",
+  "dur": 1.11,
+  "peak_db": -0.9,
+  "rms_db": -9.1,
+  "transient_s": 0.59,
+  "centroid_hz": 850,
+  "low_ratio": 0.882
+ },
+ {
+  "file": "tiktok-pack2/dexter-meme.wav",
+  "dur": 0.49,
+  "peak_db": -0.9,
+  "rms_db": -14.5,
+  "transient_s": 0.312,
+  "centroid_hz": 4981,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "tiktok-pack2/ding-sound.wav",
+  "dur": 0.48,
+  "peak_db": -0.9,
+  "rms_db": -7.8,
+  "transient_s": 0.123,
+  "centroid_hz": 3013,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "tiktok-pack2/disc.wav",
+  "dur": 0.32,
+  "peak_db": -0.9,
+  "rms_db": -14.2,
+  "transient_s": 0.128,
+  "centroid_hz": 1060,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "tiktok-pack2/fahh-meme.wav",
+  "dur": 1.07,
+  "peak_db": -0.9,
+  "rms_db": -15.1,
+  "transient_s": 0.038,
+  "centroid_hz": 3022,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "tiktok-pack2/reveal-sound.wav",
+  "dur": 0.5,
+  "peak_db": -0.9,
+  "rms_db": -18.1,
+  "transient_s": 0.233,
+  "centroid_hz": 6885,
+  "low_ratio": 0.004
+ },
+ {
+  "file": "tiktok-pack2/taco-bell-bong.wav",
+  "dur": 1.3,
+  "peak_db": -0.9,
+  "rms_db": -11.7,
+  "transient_s": 0.193,
+  "centroid_hz": 3814,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "tiktok-pack3/basse-percutante.wav",
+  "dur": 0.9,
+  "peak_db": -0.9,
+  "rms_db": -8.6,
+  "transient_s": 0.156,
+  "centroid_hz": 2112,
+  "low_ratio": 0.931
+ },
+ {
+  "file": "tiktok-pack3/changement-de-page.wav",
+  "dur": 1.2,
+  "peak_db": -0.9,
+  "rms_db": -17.0,
+  "transient_s": 0.581,
+  "centroid_hz": 4515,
+  "low_ratio": 0.271
+ },
+ {
+  "file": "tiktok-pack3/chargement-photo.wav",
+  "dur": 1.7,
+  "peak_db": -0.9,
+  "rms_db": -7.4,
+  "transient_s": 0.661,
+  "centroid_hz": 567,
+  "low_ratio": 0.968
+ },
+ {
+  "file": "tiktok-pack3/glass-shine.wav",
+  "dur": 0.9,
+  "peak_db": -0.9,
+  "rms_db": -12.0,
+  "transient_s": 0.321,
+  "centroid_hz": 4828,
+  "low_ratio": 0.118
+ },
+ {
+  "file": "tiktok-pack3/low-rise.wav",
+  "dur": 0.7,
+  "peak_db": -0.9,
+  "rms_db": -9.4,
+  "transient_s": 0.295,
+  "centroid_hz": 2558,
+  "low_ratio": 0.888
+ },
+ {
+  "file": "tiktok-pack3/metallic-riser.wav",
+  "dur": 1.0,
+  "peak_db": -0.9,
+  "rms_db": -9.1,
+  "transient_s": 0.182,
+  "centroid_hz": 1129,
+  "low_ratio": 0.982
+ },
+ {
+  "file": "tiktok-pack3/rampe-dinertie.wav",
+  "dur": 0.6,
+  "peak_db": -0.9,
+  "rms_db": -13.2,
+  "transient_s": 0.197,
+  "centroid_hz": 1895,
+  "low_ratio": 0.293
+ },
+ {
+  "file": "tiktok-pack3/roulement-tambour.wav",
+  "dur": 0.5,
+  "peak_db": -0.9,
+  "rms_db": -13.8,
+  "transient_s": 0.13,
+  "centroid_hz": 2407,
+  "low_ratio": 0.632
+ },
+ {
+  "file": "tiktok-pack3/thunder-opener.wav",
+  "dur": 1.0,
+  "peak_db": -0.9,
+  "rms_db": -10.6,
+  "transient_s": 0.356,
+  "centroid_hz": 2247,
+  "low_ratio": 0.885
+ },
+ {
+  "file": "ui-pack/01-notifications/message-clic.wav",
+  "dur": 3.32,
+  "peak_db": -3.4,
+  "rms_db": -22.1,
+  "transient_s": 2.405,
+  "centroid_hz": 1130,
+  "low_ratio": 0.002
+ },
+ {
+  "file": "ui-pack/01-notifications/message-doux.wav",
+  "dur": 4.495,
+  "peak_db": -2.5,
+  "rms_db": -20.6,
+  "transient_s": 3.089,
+  "centroid_hz": 564,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/01-notifications/notification-menu.wav",
+  "dur": 0.54,
+  "peak_db": -7.4,
+  "rms_db": -24.2,
+  "transient_s": 0.094,
+  "centroid_hz": 945,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/01-notifications/notification-rapide.wav",
+  "dur": 4.985,
+  "peak_db": -1.5,
+  "rms_db": -23.5,
+  "transient_s": 4.611,
+  "centroid_hz": 7201,
+  "low_ratio": 0.046
+ },
+ {
+  "file": "ui-pack/01-notifications/notification-selection.wav",
+  "dur": 0.25,
+  "peak_db": -1.5,
+  "rms_db": -23.2,
+  "transient_s": 0.039,
+  "centroid_hz": 1636,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-clair.wav",
+  "dur": 6.175,
+  "peak_db": -7.0,
+  "rms_db": -27.6,
+  "transient_s": 1.99,
+  "centroid_hz": 9390,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-complexe-01.wav",
+  "dur": 1.185,
+  "peak_db": -10.8,
+  "rms_db": -26.7,
+  "transient_s": 0.281,
+  "centroid_hz": 11440,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-complexe-02.wav",
+  "dur": 0.575,
+  "peak_db": -11.9,
+  "rms_db": -41.6,
+  "transient_s": 0.072,
+  "centroid_hz": 9430,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-complexe-03.wav",
+  "dur": 0.615,
+  "peak_db": -9.6,
+  "rms_db": -25.8,
+  "transient_s": 0.175,
+  "centroid_hz": 10815,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-complexe-04.wav",
+  "dur": 0.995,
+  "peak_db": -9.4,
+  "rms_db": -27.0,
+  "transient_s": 0.362,
+  "centroid_hz": 12043,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-complexe-05.wav",
+  "dur": 1.625,
+  "peak_db": -6.2,
+  "rms_db": -27.9,
+  "transient_s": 0.557,
+  "centroid_hz": 9613,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-complexe-06.wav",
+  "dur": 0.59,
+  "peak_db": -8.8,
+  "rms_db": -27.0,
+  "transient_s": 0.226,
+  "centroid_hz": 10625,
+  "low_ratio": 0.005
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-complexe-07.wav",
+  "dur": 0.53,
+  "peak_db": -9.4,
+  "rms_db": -26.0,
+  "transient_s": 0.037,
+  "centroid_hz": 10654,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-complexe-08.wav",
+  "dur": 0.475,
+  "peak_db": -3.2,
+  "rms_db": -27.5,
+  "transient_s": 0.297,
+  "centroid_hz": 5467,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-complexe-09.wav",
+  "dur": 0.74,
+  "peak_db": -3.9,
+  "rms_db": -26.1,
+  "transient_s": 0.029,
+  "centroid_hz": 9013,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-complexe-10.wav",
+  "dur": 1.465,
+  "peak_db": -8.6,
+  "rms_db": -24.7,
+  "transient_s": 0.051,
+  "centroid_hz": 10648,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-complexe-11.wav",
+  "dur": 1.495,
+  "peak_db": -5.0,
+  "rms_db": -24.3,
+  "transient_s": 0.099,
+  "centroid_hz": 9754,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-court-01.wav",
+  "dur": 0.905,
+  "peak_db": -4.7,
+  "rms_db": -20.2,
+  "transient_s": 0.075,
+  "centroid_hz": 759,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-court-02.wav",
+  "dur": 0.97,
+  "peak_db": -5.6,
+  "rms_db": -21.9,
+  "transient_s": 0.163,
+  "centroid_hz": 1377,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-court-03.wav",
+  "dur": 1.04,
+  "peak_db": -7.5,
+  "rms_db": -22.7,
+  "transient_s": 0.098,
+  "centroid_hz": 1237,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-pince.wav",
+  "dur": 3.53,
+  "peak_db": -1.5,
+  "rms_db": -22.8,
+  "transient_s": 0.116,
+  "centroid_hz": 1428,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/confirme-sec.wav",
+  "dur": 2.23,
+  "peak_db": -8.5,
+  "rms_db": -25.8,
+  "transient_s": 1.819,
+  "centroid_hz": 961,
+  "low_ratio": 0.004
+ },
+ {
+  "file": "ui-pack/02-validation/positif-1.wav",
+  "dur": 3.69,
+  "peak_db": -1.5,
+  "rms_db": -28.1,
+  "transient_s": 2.373,
+  "centroid_hz": 5402,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/positif-2.wav",
+  "dur": 5.09,
+  "peak_db": -1.5,
+  "rms_db": -28.3,
+  "transient_s": 1.512,
+  "centroid_hz": 6683,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/succes-court-01.wav",
+  "dur": 1.055,
+  "peak_db": -1.6,
+  "rms_db": -23.9,
+  "transient_s": 0.089,
+  "centroid_hz": 3094,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/succes-court-02.wav",
+  "dur": 0.995,
+  "peak_db": -3.5,
+  "rms_db": -23.9,
+  "transient_s": 0.101,
+  "centroid_hz": 3177,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/succes-court-03.wav",
+  "dur": 1.02,
+  "peak_db": -3.2,
+  "rms_db": -24.9,
+  "transient_s": 0.14,
+  "centroid_hz": 3031,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/02-validation/succes-scintillant.wav",
+  "dur": 6.065,
+  "peak_db": -4.5,
+  "rms_db": -24.5,
+  "transient_s": 0.024,
+  "centroid_hz": 3717,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/03-echec/refus-1.wav",
+  "dur": 4.1,
+  "peak_db": -2.0,
+  "rms_db": -18.9,
+  "transient_s": 0.03,
+  "centroid_hz": 427,
+  "low_ratio": 0.115
+ },
+ {
+  "file": "ui-pack/03-echec/refus-2.wav",
+  "dur": 5.225,
+  "peak_db": -1.5,
+  "rms_db": -21.5,
+  "transient_s": 0.163,
+  "centroid_hz": 754,
+  "low_ratio": 0.475
+ },
+ {
+  "file": "ui-pack/04-interface/balayage.wav",
+  "dur": 3.84,
+  "peak_db": -1.4,
+  "rms_db": -27.1,
+  "transient_s": 1.322,
+  "centroid_hz": 4881,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/carillon-glitch.wav",
+  "dur": 2.413,
+  "peak_db": -4.5,
+  "rms_db": -26.6,
+  "transient_s": 1.684,
+  "centroid_hz": 9428,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/glitch-numerique.wav",
+  "dur": 3.59,
+  "peak_db": -3.0,
+  "rms_db": -22.3,
+  "transient_s": 1.721,
+  "centroid_hz": 8332,
+  "low_ratio": 0.096
+ },
+ {
+  "file": "ui-pack/04-interface/interaction-simple-01.wav",
+  "dur": 0.64,
+  "peak_db": -9.0,
+  "rms_db": -26.0,
+  "transient_s": 0.081,
+  "centroid_hz": 5501,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "ui-pack/04-interface/interaction-simple-02.wav",
+  "dur": 0.525,
+  "peak_db": -8.3,
+  "rms_db": -22.9,
+  "transient_s": 0.069,
+  "centroid_hz": 4791,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/interaction-simple-03.wav",
+  "dur": 0.435,
+  "peak_db": -5.7,
+  "rms_db": -25.9,
+  "transient_s": 0.068,
+  "centroid_hz": 3061,
+  "low_ratio": 0.005
+ },
+ {
+  "file": "ui-pack/04-interface/interaction-simple-04.wav",
+  "dur": 0.33,
+  "peak_db": -1.5,
+  "rms_db": -17.8,
+  "transient_s": 0.038,
+  "centroid_hz": 2882,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/interaction-simple-05.wav",
+  "dur": 0.485,
+  "peak_db": -4.4,
+  "rms_db": -23.2,
+  "transient_s": 0.089,
+  "centroid_hz": 4316,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ordinateur.wav",
+  "dur": 4.453,
+  "peak_db": -1.5,
+  "rms_db": -26.7,
+  "transient_s": 0.011,
+  "centroid_hz": 4094,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "ui-pack/04-interface/ui-01.wav",
+  "dur": 0.163,
+  "peak_db": -1.6,
+  "rms_db": -18.4,
+  "transient_s": 0.087,
+  "centroid_hz": 6355,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ui-02.wav",
+  "dur": 0.55,
+  "peak_db": -3.6,
+  "rms_db": -28.0,
+  "transient_s": 0.1,
+  "centroid_hz": 9872,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ui-03.wav",
+  "dur": 0.755,
+  "peak_db": -6.8,
+  "rms_db": -23.6,
+  "transient_s": 0.029,
+  "centroid_hz": 12848,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ui-04.wav",
+  "dur": 0.256,
+  "peak_db": -2.4,
+  "rms_db": -29.4,
+  "transient_s": 0.006,
+  "centroid_hz": 6680,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ui-05.wav",
+  "dur": 0.41,
+  "peak_db": -2.3,
+  "rms_db": -33.2,
+  "transient_s": 0.014,
+  "centroid_hz": 10972,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ui-06.wav",
+  "dur": 0.63,
+  "peak_db": -3.2,
+  "rms_db": -26.5,
+  "transient_s": 0.024,
+  "centroid_hz": 14438,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ui-07.wav",
+  "dur": 0.49,
+  "peak_db": -10.8,
+  "rms_db": -27.2,
+  "transient_s": 0.229,
+  "centroid_hz": 12275,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ui-08.wav",
+  "dur": 0.299,
+  "peak_db": -2.4,
+  "rms_db": -28.8,
+  "transient_s": 0.084,
+  "centroid_hz": 11486,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ui-09.wav",
+  "dur": 0.575,
+  "peak_db": -9.3,
+  "rms_db": -28.7,
+  "transient_s": 0.175,
+  "centroid_hz": 7864,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ui-10.wav",
+  "dur": 0.619,
+  "peak_db": -6.2,
+  "rms_db": -25.1,
+  "transient_s": 0.069,
+  "centroid_hz": 8983,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-a.wav",
+  "dur": 24.74,
+  "peak_db": -1.5,
+  "rms_db": -19.9,
+  "transient_s": 4.04,
+  "centroid_hz": 6577,
+  "low_ratio": 0.842
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-01.wav",
+  "dur": 2.82,
+  "peak_db": -5.5,
+  "rms_db": -24.2,
+  "transient_s": 0.596,
+  "centroid_hz": 1948,
+  "low_ratio": 0.047
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-02.wav",
+  "dur": 0.81,
+  "peak_db": -2.4,
+  "rms_db": -24.7,
+  "transient_s": 0.229,
+  "centroid_hz": 3129,
+  "low_ratio": 0.431
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-03.wav",
+  "dur": 0.75,
+  "peak_db": -8.1,
+  "rms_db": -27.8,
+  "transient_s": 0.187,
+  "centroid_hz": 1666,
+  "low_ratio": 0.08
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-04.wav",
+  "dur": 1.89,
+  "peak_db": -7.3,
+  "rms_db": -25.9,
+  "transient_s": 0.738,
+  "centroid_hz": 4444,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-05.wav",
+  "dur": 0.35,
+  "peak_db": -1.5,
+  "rms_db": -22.5,
+  "transient_s": 0.047,
+  "centroid_hz": 4185,
+  "low_ratio": 0.005
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-06.wav",
+  "dur": 0.35,
+  "peak_db": -1.5,
+  "rms_db": -23.1,
+  "transient_s": 0.041,
+  "centroid_hz": 5065,
+  "low_ratio": 0.015
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-07.wav",
+  "dur": 0.36,
+  "peak_db": -1.5,
+  "rms_db": -20.6,
+  "transient_s": 0.077,
+  "centroid_hz": 6081,
+  "low_ratio": 0.022
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-08.wav",
+  "dur": 0.28,
+  "peak_db": -1.7,
+  "rms_db": -26.9,
+  "transient_s": 0.094,
+  "centroid_hz": 7347,
+  "low_ratio": 0.001
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-09.wav",
+  "dur": 0.875,
+  "peak_db": -1.5,
+  "rms_db": -22.6,
+  "transient_s": 0.098,
+  "centroid_hz": 3944,
+  "low_ratio": 0.641
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-10.wav",
+  "dur": 0.895,
+  "peak_db": -9.2,
+  "rms_db": -26.5,
+  "transient_s": 0.321,
+  "centroid_hz": 1543,
+  "low_ratio": 0.04
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-11.wav",
+  "dur": 0.805,
+  "peak_db": -3.0,
+  "rms_db": -17.6,
+  "transient_s": 0.403,
+  "centroid_hz": 3343,
+  "low_ratio": 0.935
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-12.wav",
+  "dur": 1.505,
+  "peak_db": -8.6,
+  "rms_db": -23.0,
+  "transient_s": 0.366,
+  "centroid_hz": 3080,
+  "low_ratio": 0.015
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-13.wav",
+  "dur": 0.62,
+  "peak_db": -7.5,
+  "rms_db": -23.5,
+  "transient_s": 0.244,
+  "centroid_hz": 3668,
+  "low_ratio": 0.284
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-14.wav",
+  "dur": 0.725,
+  "peak_db": -4.7,
+  "rms_db": -24.6,
+  "transient_s": 0.274,
+  "centroid_hz": 1654,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-15.wav",
+  "dur": 2.555,
+  "peak_db": -6.3,
+  "rms_db": -23.1,
+  "transient_s": 0.992,
+  "centroid_hz": 4498,
+  "low_ratio": 0.269
+ },
+ {
+  "file": "ui-pack/04-interface/ui-serie-b-16.wav",
+  "dur": 1.45,
+  "peak_db": -7.8,
+  "rms_db": -23.0,
+  "transient_s": 0.464,
+  "centroid_hz": 2334,
+  "low_ratio": 0.018
+ },
+ {
+  "file": "ui-pack/04-interface/verre-flou.wav",
+  "dur": 1.46,
+  "peak_db": -7.4,
+  "rms_db": -23.8,
+  "transient_s": 0.561,
+  "centroid_hz": 1775,
+  "low_ratio": 0.003
+ },
+ {
+  "file": "ui-pack/05-chargement/chargement-donnees-01.wav",
+  "dur": 6.155,
+  "peak_db": -6.9,
+  "rms_db": -25.0,
+  "transient_s": 4.968,
+  "centroid_hz": 9999,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/05-chargement/chargement-donnees-02.wav",
+  "dur": 5.055,
+  "peak_db": -10.8,
+  "rms_db": -24.5,
+  "transient_s": 1.595,
+  "centroid_hz": 11493,
+  "low_ratio": 0.0
+ },
+ {
+  "file": "ui-pack/06-transition/riser.wav",
+  "dur": 1.55,
+  "peak_db": -6.1,
+  "rms_db": -21.9,
+  "transient_s": 1.136,
+  "centroid_hz": 4335,
+  "low_ratio": 0.791
+ }
+]
