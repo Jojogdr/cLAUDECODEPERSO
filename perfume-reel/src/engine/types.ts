@@ -36,6 +36,8 @@ export type Wall = {
   from: number; to: number; clip: string; clipFrom: number;
   bg?: Media & {css?: string; dark?: number};
   texts: WallText[]; top?: number;
+  captions?: boolean;          // keep the word captions on while this wall is up
+  enter?: 'fade' | 'scan';     // scan = the new background wipes down behind a light line
 };
 
 export type Tag = {text: string; at: number; x: number; y: number; light?: boolean};
@@ -44,7 +46,7 @@ export type Card = {at: number; x: number; y: number; image: string; pos?: strin
 export type TransitionName =
   | 'cut' | 'up' | 'zoom' | 'whip' | 'whipLeft' | 'zoomBlur' | 'flashCut' | 'luma' | 'glitch' | 'iris' | 'push';
 
-type SceneBase = {from: number; to: number; enter: TransitionName; exit?: TransitionName; sweepAt?: number; tags?: Tag[]};
+type SceneBase = {from: number; to: number; enter: TransitionName; exit?: TransitionName; sweepAt?: number; tags?: Tag[]; captions?: boolean};
 export type Scene =
   | (SceneBase & {kind: 'title'; image: string; brand: string; brandAt: number; name: string; nameAt: number; paper?: boolean})
   | (SceneBase & {kind: 'media'; media: Media; dark?: number; shade?: [number, number]; punches?: number[]; blocks?: Block[]; hud?: boolean})
@@ -90,6 +92,7 @@ export type Edl = {
   sheet?: Sheet;
   captionEmph?: string[];      // words shown in serif italic in yass captions
   grade?: string;              // ffmpeg -vf chain applied at the finish step (look / colour)
+  fx?: Fx[];                   // punch layer: one literal visual per punchline (src/engine/Fx.tsx)
 };
 
 /* =====================================================================
@@ -121,3 +124,18 @@ export type Sheet = {
   rows: [string, string][]; rowsAt: number; rowGap?: number; top?: number;
   pill?: {text: string; at: number};
 };
+
+/* =====================================================================
+   Punch layer (src/engine/Fx.tsx)
+   ===================================================================== */
+export type Fx =
+  | {kind: 'brand'; from: number; to: number; label: string; mark: string; color?: string; accent?: string}
+  | {kind: 'badge'; from: number; to: number; x: number; y: number; size?: number; ring?: string; bg?: string; color?: string;
+     image?: string; pos?: string; video?: string; offset?: number; icon?: 'moustache' | 'lips' | 'flame' | 'drop'; text?: string}
+  | {kind: 'notifs'; from: number; to: number; y?: number; items: {at: number; title: string; text: string; time?: string; color?: string}[]}
+  | {kind: 'gauge'; from: number; to: number; y: number; label: string; fillFrom: number; fillTo: number; steps?: number; accent?: string}
+  | {kind: 'fingerprint'; from: number; to: number; y?: number; size?: number; color?: string}
+  | {kind: 'burst'; from: number; to: number; at: number; x: number; y: number; color?: string}
+  | {kind: 'scan'; from: number; to: number; at: number; dur?: number; color?: string}
+  | {kind: 'endcard'; from: number; to: number; image: string; pos?: string; title: string; name: string; pill: string; cta: string; small?: string;
+     accent?: string; pillAt?: number; ctaAt?: number};

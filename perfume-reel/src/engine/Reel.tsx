@@ -6,6 +6,7 @@ import {
 import type {Block, Card, Edl, Media, Overlay, Scene, Tag, TransitionName, Wall} from './types';
 import {Ctx, useEdl, useT, ease, inOut, clamp, SHADOW, camAt} from './ctx';
 import {TypeCompView, FloatCardView, SheetView, YassCaptions, PaperBg, activeFront} from './Design';
+import {FxView, fxOwnsFrame} from './Fx';
 
 /* =====================================================================
    Generic reel renderer: <Reel edl={...}/> — no hard-coded timings here.
@@ -128,14 +129,17 @@ const Captions: React.FC<{hidden: boolean}> = ({hidden}) => {
 /* ---------------------------------------------------------------- walls */
 const WallBg: React.FC<{w: Wall}> = ({w}) => {
   const t = useT();
-  if (!w.bg) return null;
   const edl = useEdl();
-  const o = win(t, w.from, w.to, 0.06, 0.06);
+  if (!w.bg) return null;
+  const scan = w.enter === 'scan';
+  const o = scan ? win(t, w.from, w.to, 0.001, 0.06) : win(t, w.from, w.to, 0.06, 0.06);
+  const reveal = scan ? interpolate(t, [w.from, w.from + 0.3], [0, 100], {...clamp, easing: Easing.inOut(Easing.cubic)}) : 100;
   // depth: the replaced wall moves about half as much as the speaker when the camera punches in
   const cs = camAt(edl, t);
   const half = (1 + (cs - 1) * 0.5) / cs;
   return (
-    <AbsoluteFill style={{opacity: o, background: '#000', transform: `scale(${half})`, transformOrigin: edl.base.origin ?? '50% 32%'}}>
+    <AbsoluteFill style={{opacity: o, background: '#000', transform: `scale(${half})`, transformOrigin: edl.base.origin ?? '50% 32%',
+      clipPath: reveal < 100 ? `inset(0 0 ${100 - reveal}% 0)` : undefined}}>
       {w.bg.css ? <AbsoluteFill style={{background: w.bg.css}} /> : <MediaView m={w.bg} from={w.from} to={w.to} />}
       <AbsoluteFill style={{background: `rgba(10,6,3,${w.bg.dark ?? 0})`}} />
     </AbsoluteFill>
@@ -436,10 +440,12 @@ export const Reel: React.FC<{edl: Edl}> = ({edl}) => {
         {(edl.cards ?? []).filter((c) => !c.behind).map((c, i) => <FloatCardView key={'fc' + i} c={c} overBase={!scene} />)}
         {(edl.types ?? []).filter((c) => !c.behind).map((c, i) => <TypeCompView key={'ft' + i} c={c} />)}
         {edl.sheet ? <SheetView s={edl.sheet} /> : null}
+        {(edl.fx ?? []).filter((f) => f.kind !== 'brand').map((f, i) => <FxView key={'fx' + i} fx={f} />)}
         {edl.theme.captionStyle === 'yass'
-          ? <YassCaptions hidden={!!scene || !!block || !!wall || activeFront(edl, t)} />
+          ? <YassCaptions hidden={(!!scene && !scene.captions) || !!block || (!!wall && !wall.captions) || activeFront(edl, t) || fxOwnsFrame(edl, t)} />
           : <Captions hidden={!!scene || !!block || !!wall} />}
         {edl.overlays.map((o, i) => <OverlayView key={i} o={o} />)}
+        {(edl.fx ?? []).filter((f) => f.kind === 'brand').map((f, i) => <FxView key={'br' + i} fx={f} />)}
         <Audio src={staticFile(edl.voice)} />
         {edl.sfxStem ? <Audio src={staticFile(edl.sfxStem)} /> : null}
         {music ? (
