@@ -26,9 +26,9 @@ export const camAt = (edl: Edl, t: number) => {
    shift: how far the top band (titles, badges, cards in the upper half) moves up from the 240-px Instagram default.
    ref / mark: where the reference label and the ALOI mark sit.                                              */
 export const LAYOUT = {
-  instagram: {shift: 50, ref: {left: 96, top: 208}, mark: {right: 250, top: 146}},   // ALOI between "Amis" and the camera
-  tiktok: {shift: 70, ref: {left: 96, top: 184}, mark: {right: 96, top: 176}},        // just under the "Pour toi" tabs
-  youtube: {shift: 120, ref: {left: 66, top: 128}, mark: {right: 330, top: 120}},     // left of the search/camera/⋮ icons
+  instagram: {shift: 85, ref: {left: 96, top: 208}, mark: {right: 250, top: 146}},   // first text line at y ≈ 215, under "Reels ⌄ Amis"
+  tiktok: {shift: 110, ref: {left: 96, top: 184}, mark: {right: 96, top: 176}},       // first text line at y ≈ 190, under "Pour toi"
+  youtube: {shift: 160, ref: {left: 66, top: 128}, mark: {right: 330, top: 120}},     // first text line at y ≈ 140 (only icons top-right)
 } as const;
 export const layoutOf = (edl: Edl) => LAYOUT[edl.platform ?? 'instagram'];
 /** moves a y in the upper half of the frame up by the platform shift */
