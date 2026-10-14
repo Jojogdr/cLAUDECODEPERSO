@@ -733,7 +733,7 @@
    "peak"
   ],
   [
-   "uisfx/swipe-cinematic",
+   "cc0/whoosh-pass-fast",
    0.95,
    -24,
    "peak"
@@ -811,9 +811,9 @@
    "start"
   ],
   [
-   "uisfx/swipe-dreamy",
+   "cc0/whoosh-high",
    8.03,
-   -24,
+   -25,
    "peak"
   ],
   [
@@ -853,9 +853,9 @@
    "start"
   ],
   [
-   "uisfx/swipe-cinematic",
+   "cc0/transition-sweep",
    11.3,
-   -24,
+   -25,
    "peak"
   ],
   [
@@ -889,7 +889,7 @@
    "peak"
   ],
   [
-   "uisfx/swipe-studio",
+   "cc0/whoosh-pass-fast",
    14.4,
    -24,
    "peak"
@@ -925,9 +925,9 @@
    "peak"
   ],
   [
-   "uisfx/swipe-glass",
+   "cc0/whoosh-high",
    17.78,
-   -25,
+   -26,
    "peak"
   ],
   [
@@ -937,9 +937,9 @@
    "peak"
   ],
   [
-   "uisfx/swipe-dreamy",
+   "cc0/whoosh-pass-slow",
    19.49,
-   -24,
+   -25,
    "peak"
   ],
   [
