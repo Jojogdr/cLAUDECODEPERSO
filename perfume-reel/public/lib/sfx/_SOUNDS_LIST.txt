@@ -1,0 +1,117 @@
+role	file	dur_s	bass_ratio<150Hz	licence	origin
+card-paper	kn-card-place-2.wav	0.46	0.01	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/card-place-2.ogg +HP200Hz
+card-paper	kn-card-place-3.wav	0.88	0.02	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/card-place-3.ogg +HP200Hz
+card-paper	kn-card-place-4.wav	0.60	0.03	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/card-place-4.ogg +HP200Hz
+card-paper	kn-card-shove-1.wav	0.77	0.00	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/card-shove-1.ogg +HP200Hz
+card-paper	kn-card-shove-2.wav	0.77	0.01	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/card-shove-2.ogg +HP200Hz
+card-paper	kn-card-shove-3.wav	0.69	0.01	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/card-shove-3.ogg +HP200Hz
+card-paper	kn-card-slide-4.wav	0.46	0.02	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/card-slide-4.ogg +HP200Hz
+card-paper	kn-card-slide-7.wav	0.64	0.00	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/card-slide-7.ogg +HP200Hz
+card-paper	kn-card-slide-8.wav	0.67	0.00	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/card-slide-8.ogg +HP200Hz
+card-paper	kn-pack-open-1.wav	0.94	0.00	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/cards-pack-open-1.ogg +HP200Hz
+card-paper	kn-pack-open-2.wav	0.73	0.00	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/cards-pack-open-2.ogg +HP200Hz
+card-paper	kn-pack-takeout-1.wav	0.49	0.00	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/cards-pack-take-out-1.ogg +HP200Hz
+card-paper	kn-pack-takeout-2.wav	0.63	0.00	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/cards-pack-take-out-2.ogg +HP200Hz
+card-paper	rz-swipe-paper.wav	0.30	0.00	RezaParsian CC0	reza-synth-sfx/swipe_paper.wav +HP200Hz
+click-ui	kn-click-1.wav	0.10	0.07	Kenney CC0	kenney-interface-sounds/click_001.ogg
+click-ui	kn-click-2.wav	0.01	0.05	Kenney CC0	kenney-interface-sounds/click_002.ogg
+click-ui	kn-click3.wav	0.08	0.03	Kenney CC0	kenney-ui-audio/click3.ogg
+click-ui	kn-click4.wav	0.04	0.00	Kenney CC0	kenney-ui-audio/click4.ogg
+click-ui	kn-click5.wav	0.03	0.00	Kenney CC0	kenney-ui-audio/click5.ogg
+click-ui	kn-mouseclick1.wav	0.06	0.00	Kenney CC0	kenney-ui-audio/mouseclick1.ogg
+click-ui	kn-rollover1.wav	0.22	0.00	Kenney CC0	kenney-ui-audio/rollover1.ogg
+click-ui	kn-select-1.wav	0.04	0.00	Kenney CC0	kenney-interface-sounds/select_001.ogg
+click-ui	kn-select-3.wav	0.38	0.00	Kenney CC0	kenney-interface-sounds/select_003.ogg
+click-ui	kn-tick-1.wav	0.04	0.00	Kenney CC0	kenney-interface-sounds/tick_001.ogg
+click-ui	kn-tick-2.wav	0.02	0.00	Kenney CC0	kenney-interface-sounds/tick_002.ogg
+click-ui	kn-tick-4.wav	0.06	0.03	Kenney CC0	kenney-interface-sounds/tick_004.ogg
+click-ui	kn-toggle-1.wav	0.14	0.00	Kenney CC0	kenney-interface-sounds/toggle_001.ogg
+click-ui	kn-toggle-3.wav	0.14	0.00	Kenney CC0	kenney-interface-sounds/toggle_003.ogg
+click-ui	rz-cut-tick.wav	0.09	0.00	RezaParsian CC0	reza-synth-sfx/cut_tick.wav
+click-ui	rz-prompt-tick.wav	0.05	0.00	RezaParsian CC0	reza-synth-sfx/prompt_tick.wav
+click-ui	rz-ui-click.wav	0.07	0.02	RezaParsian CC0	reza-synth-sfx/ui_click.wav
+click-ui	rz-ui-double-click.wav	0.20	0.00	RezaParsian CC0	reza-synth-sfx/ui_double_click.wav
+click-ui	ui-glass-press.wav	0.36	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/glass/press.mp3
+click-ui	ui-glass-select.wav	0.51	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/glass/select.mp3
+click-ui	ui-mechanical-snap.wav	0.16	0.02	UISFX CC0 (Yuki Capital)	uisfx-cc0/mechanical/snap.mp3
+click-ui	ui-minimal-select.wav	0.24	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/minimal/select.mp3
+click-ui	ui-minimal-snap.wav	0.15	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/minimal/snap.mp3
+money	kn-chip-lay-1.wav	0.17	0.00	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/chip-lay-1.ogg
+money	kn-chip-lay-2.wav	0.23	0.01	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/chip-lay-2.ogg
+money	kn-chips-collide-1.wav	0.26	0.00	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/chips-collide-1.ogg
+money	kn-chips-collide-2.wav	0.23	0.00	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/chips-collide-2.ogg
+money	kn-chips-stack-1.wav	0.28	0.00	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/chips-stack-1.ogg
+money	kn-chips-stack-2.wav	0.17	0.00	Kenney CC0 (via Mcamento8 mirror)	kenney-casino-audio/chips-stack-2.ogg
+money	kn-confirm-1.wav	0.29	0.00	Kenney CC0	kenney-interface-sounds/confirmation_001.ogg
+money	kn-confirm-2.wav	0.54	0.00	Kenney CC0	kenney-interface-sounds/confirmation_002.ogg
+money	rz-coin-ping.wav	0.56	0.00	RezaParsian CC0	reza-synth-sfx/coin_ping.wav
+money	rz-notif-ding.wav	0.85	0.00	RezaParsian CC0	reza-synth-sfx/notification_ding.wav
+money	rz-success-chime.wav	1.50	0.00	RezaParsian CC0	reza-synth-sfx/success_chime.wav
+money	ui-glass-add-to-cart.wav	0.75	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/glass/add-to-cart.mp3
+money	ui-glass-checkout.wav	0.95	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/glass/checkout.mp3
+money	ui-glass-coupon.wav	0.80	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/glass/coupon.mp3
+money	ui-glass-purchase.wav	0.96	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/glass/purchase.mp3
+money	ui-glass-reward.wav	0.90	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/glass/reward.mp3
+money	ui-glass-success.wav	1.03	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/glass/success.mp3
+money	ui-minimal-checkout.wav	0.54	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/minimal/checkout.mp3
+money	ui-minimal-purchase.wav	0.55	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/minimal/purchase.mp3
+money	ui-minimal-reward.wav	0.51	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/minimal/reward.mp3
+pop	kn-pluck-1.wav	0.10	0.00	Kenney CC0	kenney-interface-sounds/pluck_001.ogg
+pop	kn-pluck-2.wav	0.16	0.00	Kenney CC0	kenney-interface-sounds/pluck_002.ogg
+pop	rz-pop-bubble.wav	0.13	0.00	RezaParsian CC0	reza-synth-sfx/pop_bubble.wav
+pop	ui-glass-badge.wav	1.06	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/glass/badge.mp3
+pop	ui-glass-reaction.wav	0.64	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/glass/reaction.mp3
+pop	ui-minimal-badge.wav	0.61	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/minimal/badge.mp3
+pop	ui-minimal-reaction.wav	0.34	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/minimal/reaction.mp3
+pop	ui-soft-badge.wav	0.95	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/soft/badge.mp3
+pop	ui-soft-reaction.wav	0.52	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/soft/reaction.mp3
+riser	own-riser-0.8s.wav	0.73	0.00	ours (derived CC0 / synthesised)	synthesised (numpy)
+riser	own-riser-1.5s.wav	1.37	0.00	ours (derived CC0 / synthesised)	synthesised
+riser	own-riser-2.5s.wav	2.28	0.00	ours (derived CC0 / synthesised)	synthesised
+riser	rz-riser-tension.wav	2.60	0.05	RezaParsian CC0	reza-synth-sfx/riser_tension.wav
+riser	rz-sparkle-magic.wav	1.70	0.00	RezaParsian CC0	reza-synth-sfx/sparkle_magic.wav
+riser	rz-text-reveal.wav	0.34	0.00	RezaParsian CC0	reza-synth-sfx/text_reveal_soft.wav
+shutter-glass	kn-glass-1.wav	0.28	0.01	Kenney CC0	kenney-interface-sounds/glass_001.ogg
+shutter-glass	kn-glass-2.wav	0.12	0.01	Kenney CC0	kenney-interface-sounds/glass_002.ogg
+shutter-glass	kn-glass-3.wav	0.12	0.04	Kenney CC0	kenney-interface-sounds/glass_003.ogg
+shutter-glass	kn-glass-4.wav	0.69	0.00	Kenney CC0	kenney-interface-sounds/glass_004.ogg
+shutter-glass	kn-glass-5.wav	0.13	0.00	Kenney CC0	kenney-interface-sounds/glass_005.ogg
+shutter-glass	kn-glass-6.wav	0.13	0.00	Kenney CC0	kenney-interface-sounds/glass_006.ogg
+shutter-glass	kn-impact-glass-0.wav	0.23	0.01	Kenney CC0 (via mirror)	kenney-impact-sounds/impactGlass_light_000.ogg
+shutter-glass	kn-impact-glass-2.wav	0.21	0.02	Kenney CC0 (via mirror)	kenney-impact-sounds/impactGlass_light_002.ogg
+shutter-glass	kn-impact-glass-4.wav	0.21	0.01	Kenney CC0 (via mirror)	kenney-impact-sounds/impactGlass_light_004.ogg
+shutter-glass	rz-camera-shutter.wav	0.32	0.03	RezaParsian CC0	reza-synth-sfx/camera_shutter.wav
+shutter-glass	rz-impact-bright.wav	0.55	0.00	RezaParsian CC0	reza-synth-sfx/impact_bright.wav
+watch-mech	kn-metal-light-0.wav	0.37	0.02	Kenney CC0 (via mirror)	kenney-impact-sounds/impactMetal_light_000.ogg
+watch-mech	kn-metal-light-1.wav	0.25	0.03	Kenney CC0 (via mirror)	kenney-impact-sounds/impactMetal_light_001.ogg
+watch-mech	kn-metal-light-2.wav	0.23	0.02	Kenney CC0 (via mirror)	kenney-impact-sounds/impactMetal_light_002.ogg
+watch-mech	kn-metal-light-3.wav	0.48	0.01	Kenney CC0 (via mirror)	kenney-impact-sounds/impactMetal_light_003.ogg
+watch-mech	own-tick-loop-4hz-6s.wav	5.77	0.00	ours (derived CC0 / synthesised)	generated from kenney tick_002
+watch-mech	own-tick-loop-8hz-4s.wav	3.92	0.00	ours (derived CC0 / synthesised)	generated from kenney tick_004 pitched
+watch-mech	rz-ratchet.wav	0.50	0.00	RezaParsian CC0	reza-synth-sfx/scroll_ratchet.wav
+watch-mech	rz-tick-single.wav	0.09	0.00	RezaParsian CC0	reza-synth-sfx/countdown_tick_single.wav
+watch-mech	ui-mech-lock.wav	0.26	0.30	UISFX CC0 (Yuki Capital)	uisfx-cc0/mechanical/lock.mp3
+watch-mech	ui-mech-press.wav	0.16	0.07	UISFX CC0 (Yuki Capital)	uisfx-cc0/mechanical/press.mp3
+watch-mech	ui-mech-toggle-on.wav	0.24	0.04	UISFX CC0 (Yuki Capital)	uisfx-cc0/mechanical/toggle-on.mp3
+watch-mech	ui-mech-unlock.wav	0.34	0.03	UISFX CC0 (Yuki Capital)	uisfx-cc0/mechanical/unlock.mp3
+whoosh	kn-maximize-1.wav	0.26	0.00	Kenney CC0	kenney-interface-sounds/maximize_001.ogg
+whoosh	kn-maximize-3.wav	0.21	0.00	Kenney CC0	kenney-interface-sounds/maximize_003.ogg
+whoosh	kn-maximize-5.wav	0.53	0.00	Kenney CC0	kenney-interface-sounds/maximize_005.ogg
+whoosh	kn-maximize-7.wav	0.18	0.00	Kenney CC0	kenney-interface-sounds/maximize_007.ogg
+whoosh	kn-minimize-2.wav	0.26	0.00	Kenney CC0	kenney-interface-sounds/minimize_002.ogg
+whoosh	kn-minimize-4.wav	0.42	0.00	Kenney CC0	kenney-interface-sounds/minimize_004.ogg
+whoosh	kn-minimize-6.wav	0.38	0.00	Kenney CC0	kenney-interface-sounds/minimize_006.ogg
+whoosh	kn-minimize-8.wav	0.23	0.00	Kenney CC0	kenney-interface-sounds/minimize_008.ogg
+whoosh	kn-switch-10.wav	0.39	0.00	Kenney CC0	kenney-ui-audio/switch10.ogg
+whoosh	kn-switch-20.wav	0.36	0.00	Kenney CC0	kenney-ui-audio/switch20.ogg
+whoosh	kn-switch-3.wav	0.36	0.00	Kenney CC0	kenney-ui-audio/switch3.ogg
+whoosh	kn-switch-30.wav	0.36	0.00	Kenney CC0	kenney-ui-audio/switch30.ogg
+whoosh	rz-whoosh-hp.wav	0.95	0.00	RezaParsian CC0	reza-synth-sfx/whoosh_transition.wav +HP300Hz
+whoosh	rz-whoosh-short-hp.wav	0.42	0.01	RezaParsian CC0	reza-synth-sfx/whoosh_short.wav +HP350Hz
+whoosh	ui-glass-swipe.wav	0.61	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/glass/swipe.mp3
+whoosh	ui-mechanical-swipe.wav	0.25	0.01	UISFX CC0 (Yuki Capital)	uisfx-cc0/mechanical/swipe.mp3
+whoosh	ui-minimal-swipe.wav	0.32	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/minimal/swipe.mp3
+whoosh	ui-soft-swipe.wav	0.50	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/soft/swipe.mp3
+whoosh	ui-studio-swipe.wav	0.33	0.00	UISFX CC0 (Yuki Capital)	uisfx-cc0/studio/swipe.mp3
+
+REJECTED/skipped:

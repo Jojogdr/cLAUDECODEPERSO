@@ -45,3 +45,18 @@ Everything lives in `perfume-reel/` (Remotion 4.0.535, React 18). One generic co
 
 ## Watch-specific beats
 Reference + calibre/movement + case size/material + scarcity/price + CTA. Product cutaways: macro photo with a slow push + 1–2 spec tags (`tags` on a `media` scene), a number/price block (`heavy`), end card with the model name pill. Theme: steel/teal grade, gold `#C9A45C`, Bodoni Moda or Playfair for accents.
+
+## Asset library (free for commercial use, licences next to each pack)
+`perfume-reel/library/CATALOGUE.md` lists every file and when to use it in an ALOI reel.
+- `public/lib/sfx/<role>/` — 119 CC0 sounds (whoosh, click-ui, pop, card-paper, money, watch-mech ticks 4/8 Hz, shutter-glass, riser) + `public/sfx_bank/cc0/` whooshes. The client bank stays first choice.
+- `public/lib/lottie/` — 26 MIT monoline animated icons (check, arrows, dollar, watch) + Noto animated emoji (CC BY 4.0: credit "Google Noto Emoji animations").
+- `public/lib/stickers/` — Fluent 3D emoji PNG (MIT: banknotes €/$, money with wings, watch, gem, eyes, smirk, pointing hands…) + Lucide/Phosphor icons. One sticker per beat at most; desaturate for the B&W brand when it fights the palette.
+- `public/lib/overlays/` — CC0 sprites + our grain/dust/light-sweep loops; `overlays/shader-sources-glsl/` (MIT) to port into the WebGL component.
+- `library/remotion/` — MIT components to restyle (price count-up, hand-drawn callouts, hook/end cards, voice-note bubble).
+- `library/behind/` — matting notes: RVM mobilenetv3 at downsample 0.25 ≈ 170 ms/frame on 4 CPU (GPL-3: internal tool only, don't redistribute); MODNet as fallback. Weights are git-ignored.
+
+## Sound and timing rules (from the research)
+- SFX land 1 frame BEFORE the visual hit; one cue sheet (EDL) drives text, transitions and sounds.
+- No sound on about half the cuts; never the same cue twice in a row; heavy impacts reserved for ~5 moments.
+- Every text must stay readable: entrance ≤ 0.3 s, and on screen at least 0.4 s + 0.06 s per character before its exit.
+- Banned looks: RGB split, camera shake, lens flares, bouncy easing, particle spam.
