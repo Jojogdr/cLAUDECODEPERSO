@@ -130,19 +130,27 @@ const Gauge: React.FC<{fx: Extract<Fx, {kind: 'gauge'}>}> = ({fx}) => {
 
 /* ------------------------------------------------------ fingerprint */
 const PRINT = (() => {
+  // a "loop" fingerprint: nested arches open at the bottom around an off-centre core,
+  // then gentle horizontal ridges underneath, each ridge broken once like a real print
   const paths: string[] = [];
-  for (let k = 0; k < 15; k++) {
-    const rx = 18 + k * 13, ry = 24 + k * 16;
-    const gap = 0.35 + random(`g${k}`) * 0.9;     // a break in each ridge
-    const a0 = -Math.PI * 0.5 + gap, a1 = Math.PI * 1.5 - 0.2;
-    let d = '';
-    for (let s = 0; s <= 48; s++) {
-      const a = a0 + (a1 - a0) * (s / 48);
-      const w = 1 + 0.035 * Math.sin(a * 3 + k);
-      const x = 250 + Math.cos(a) * rx * w, y = 300 + Math.sin(a) * ry * w * (a > Math.PI * 0.6 && a < Math.PI * 1.4 ? 1 : 1);
-      d += (s ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+  const cx = 250, cy = 250;
+  for (let k = 0; k < 13; k++) {
+    const rx = 16 + k * 15, ry = 22 + k * 19;
+    const a0 = Math.PI * (0.92 - k * 0.012), a1 = Math.PI * (2.08 + k * 0.012);
+    const br = a0 + (a1 - a0) * (0.25 + random(`b${k}`) * 0.5);   // break position
+    for (const [s0, s1] of [[a0, br - 0.07], [br + 0.07, a1]]) {
+      let d = '';
+      for (let s = 0; s <= 30; s++) {
+        const a = s0 + (s1 - s0) * (s / 30);
+        const w = 1 + 0.03 * Math.sin(a * 4 + k * 1.7);
+        d += (s ? 'L' : 'M') + (cx + Math.cos(a) * rx * w).toFixed(1) + ' ' + (cy + Math.sin(a) * ry * w + (Math.sin(a) > 0 ? Math.sin(a) * k * 4 : 0)).toFixed(1);
+      }
+      paths.push(d);
     }
-    paths.push(d);
+  }
+  for (let j = 0; j < 6; j++) {
+    const y = cy + 250 + j * 24, h = 26 - j * 3;
+    paths.push(`M${40 + j * 14} ${y + 20} Q ${cx} ${y - h} ${460 - j * 14} ${y + 20}`);
   }
   return paths;
 })();

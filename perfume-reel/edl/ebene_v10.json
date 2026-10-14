@@ -560,8 +560,8 @@
   {
    "from": 0.0,
    "to": 0.4,
-   "clip": "wall_full.webm",
-   "clipFrom": 0,
+   "clip": "wall_hook.webm",
+   "clipFrom": 0.0,
    "bg": {
     "src": "",
     "css": "radial-gradient(ellipse at 50% 30%, #6B4420 0%, #1C120A 72%)"
@@ -570,10 +570,10 @@
    "captions": true
   },
   {
-   "from": 4.25,
-   "to": 5.12,
-   "clip": "wall_full.webm",
-   "clipFrom": 0,
+   "from": 4.28,
+   "to": 5.01,
+   "clip": "wall_v7a.webm",
+   "clipFrom": 4.28,
    "bg": {
     "src": "",
     "css": "linear-gradient(165deg, #3C5873 0%, #142130 100%)"
@@ -583,10 +583,23 @@
    "enter": "scan"
   },
   {
+   "from": 5.01,
+   "to": 5.12,
+   "clip": "wall_v7b.webm",
+   "clipFrom": 5.01,
+   "bg": {
+    "src": "",
+    "css": "linear-gradient(165deg, #3C5873 0%, #142130 100%)"
+   },
+   "texts": [],
+   "captions": true,
+   "enter": "fade"
+  },
+  {
    "from": 5.12,
    "to": 6.34,
-   "clip": "wall_full.webm",
-   "clipFrom": 0,
+   "clip": "wall_v7b.webm",
+   "clipFrom": 5.01,
    "bg": {
     "src": "",
     "css": "linear-gradient(165deg, #D08A5C 0%, #6A2E1E 100%)"
@@ -598,8 +611,8 @@
   {
    "from": 8.83,
    "to": 9.48,
-   "clip": "wall_full.webm",
-   "clipFrom": 0,
+   "clip": "wall_body1.webm",
+   "clipFrom": 8.83,
    "bg": {
     "src": "img/p3.jpg",
     "pos": "30% 50%",
@@ -616,8 +629,8 @@
   {
    "from": 9.48,
    "to": 10.29,
-   "clip": "wall_full.webm",
-   "clipFrom": 0,
+   "clip": "wall_body1.webm",
+   "clipFrom": 8.83,
    "bg": {
     "src": "broll/smoke.mp4",
     "video": true,
@@ -634,8 +647,8 @@
   {
    "from": 16.98,
    "to": 17.78,
-   "clip": "wall_full.webm",
-   "clipFrom": 0,
+   "clip": "wall_v7c.webm",
+   "clipFrom": 16.98,
    "bg": {
     "src": "",
     "css": "radial-gradient(ellipse at 50% 35%, #5A3414 0%, #0C0805 75%)"
@@ -1185,26 +1198,26 @@
   {
    "from": 2.1,
    "to": 2.83,
-   "y": 1330,
+   "y": 1290,
    "lines": [
     {
      "text": "Ébène Fumé.",
      "font": "serif",
      "size": 200,
      "at": 2.12,
-     "color": "#8A5A1E"
+     "color": "#fff"
     },
     {
      "text": "EAU DE PARFUM · 50 ML",
      "font": "mono",
      "size": 26,
      "at": 2.32,
-     "color": "#8C867D"
+     "color": "#E9E2D6"
     }
    ],
    "exit": "cut",
-   "shadow": false,
-   "scrim": false
+   "shadow": true,
+   "scrim": true
   },
   {
    "from": 4.25,
@@ -1596,7 +1609,7 @@
    "kind": "gauge",
    "from": 14.42,
    "to": 15.62,
-   "y": 1250,
+   "y": 560,
    "label": "PUISSANCE",
    "fillFrom": 14.48,
    "fillTo": 15.3,
