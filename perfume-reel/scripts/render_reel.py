@@ -66,6 +66,7 @@ m = json.loads(meas[meas.rindex('{'):])
 ln = (f"loudnorm=I=-14:TP=-1:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}"
       f":measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
 out = f'out/{rid}.mp4'
-run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', final_video, '-i', clean, '-map', '0:v', '-map', '1:a', '-c:v', 'libx264', '-preset', 'slow', '-b:v', '4600k',
+grade = ['-vf', edl['grade']] if edl.get('grade') else []  # the look (colour, grain, vignette) over everything
+run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', final_video, '-i', clean, '-map', '0:v', '-map', '1:a', *grade, '-c:v', 'libx264', '-preset', 'slow', '-b:v', '4600k',
      '-maxrate', '9000k', '-bufsize', '12000k', '-af', ln, '-ar', '48000', '-c:a', 'aac', '-b:a', '256k', '-movflags', '+faststart', out])
 print('done ->', out, os.path.getsize(out) // 1024, 'KB')
