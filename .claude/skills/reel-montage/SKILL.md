@@ -1,94 +1,95 @@
 ---
 name: reel-montage
-description: Edit a talking-head video (luxury watches, perfume, any product review) into a 20–30 s vertical Reel/TikTok in the client's style — word-by-word captions, one emphasis block at a time, wall-only background replacement with words behind the speaker, product cutaways, GL transitions with flash + SFX on the same frame, the client's SFX bank, music drop on the key word. Use whenever the user sends a raw talking-head video (+ product photos / b-roll) and asks for a montage / reel / TikTok edit.
+description: Edit a talking-head video (luxury watches for ALOI, perfume, any product review) into a 20–25 s vertical Reel / TikTok / YouTube Short in the client's validated style — "cinema" (V8) or "punchline" (V14, one literal visual per punchline) or a mix — with a planche validated before every render, one master per platform, the client's own SFX bank, and the Remotion EDL engine in perfume-reel/. Use whenever the user sends a raw talking-head video (+ product photos / b-roll) and asks for a montage, reel, TikTok, Short, test variants or a platform preview.
 ---
 
 # Reel montage (Remotion EDL engine)
 
-Everything lives in `perfume-reel/` (Remotion 4.0.535, React 18). One generic composition renders any **EDL** (edit decision list, `src/engine/types.ts`); a new video = a new `edl/<id>.json` (+ `edl/<id>.post.json` for GL transitions) + assets. `edl/ebene_v8.json` is the reference example — copy its structure.
+Everything lives in `perfume-reel/` (Remotion 4.0.535, React 18, Chromium headless, CPU only). One generic composition
+`Reel` renders any **EDL** (edit decision list, `src/engine/types.ts`): a new video = a new `edl/<id>.json` (+ `edl/<id>.post.json`
+for WebGL transitions) + assets. **Reference EDLs**: `edl/ebene_v8.json` (cinema) and `edl/ebene_v14_ig.json` (punchline,
+Instagram master; `_tt` TikTok, `_yt` Shorts). Full history, client likes/dislikes and audit: `perfume-reel/docs/RECAP_V8_V14.md`
+— read it before a new edit.
+
+## Two validated styles (mix them — not barriers, starting points)
+- **Cinema (V8)** — elegant, dark/gold DA: wall behind the speaker replaced 3–5 times (flames, smoke, product photo) with ONE
+  centred word behind her hair (Inter 900 caps or Playfair italic), word-by-word centred captions, full-bleed product cutaways,
+  WebGL transitions (CrossZoom, DreamyZoom, FilmBurn, LinearBlur) with flash/leak + whoosh on the same frame, music drop on the
+  climax word, consistent zooms (snap 0.12–0.15 s, push ≈0.035/s). Feels like a luxury ad.
+- **Punchline (V14)** — the Wimbledon pique method: every joke/claim gets its own literal image within ~0.5–1 s:
+  iOS notification banners dropping from the top (`fx: notifs`), a round badge next to the head (`badge`, drawn icon/photo),
+  wall swap with a colour that tells the story + scan-line wipe (`walls[].enter: 'scan'`), gauge/counter (`gauge`), a symbol that
+  draws itself (`fingerprint`), impact lines (`burst`), floating cards with parallax (`cards`), product cutaways, Apple-style end
+  card with packshot cut-out + WhatsApp pill (`endcard`). One-line heavy caps title just under the app header (Inter Tight 900,
+  tracking −0.045em), key word in italic serif accent (Instrument Serif), yass captions (word rise, key words in serif).
+- For watches: V8 atmosphere + V14 punchline mechanics. Watch beats: reference (badge/caps), case/water resistance (gauge
+  "ÉTANCHE 100 M"), box & papers, scarcity, price shown at the end (never spoken), WhatsApp CTA.
 
 ## Hard rules (client)
-- **Planche first, always.** Before ANY full render (new video or new version), render 15–20 stills at the key beats
-  (`npx remotion bundle` once, then `npx remotion still <bundle> Reel <out> --frame=N --props=... --scale=0.3`), tile them
-  (`ffmpeg -pattern_type glob -i 's*.jpg' -vf "scale=216:-1,tile=10x2"`), look at it yourself, fix what is wrong, then SEND the
-  planche to the client before launching the render. The render only starts after the planche has been sent.
-- **Platform safe zones (Reels + TikTok + Shorts at once).** Everything that matters sits in x 96–984 (x 96–900 below
-  y 1000) and y 240–1440. Above y ≈ 230 the iPhone status bar and the Reels/For-You tabs cover the frame; ~54 px per side are
-  cropped on tall phones; the like/comment/share rail is on the right from mid-height; @handle + caption at the bottom
-  (TikTok hides more: ~130 top, ~140 right, 320–480 bottom). The brand frame ("REF · MODEL" left, ALOI right) sits at y 240,
-  inset 96 px. Planches are rendered with the `safezone` fx (real Instagram UI drawn + TikTok margins + green safe box);
-  never ship it in the video. Keep the face un-zoomed (camera ≤ ~1.09, punches small), titles one line, front of the speaker.
-- **One literal visual per punchline** (reference: the Wimbledon pique): every joke/claim gets its own image within ~0.5–1 s —
-  a cutaway (product, world), a mock-up (iOS lock screen + notifications, iMessage), a badge next to the speaker (circle with a
-  drawn icon/photo), a background swap behind the speaker with a scan-line wipe, a gauge/counter, a drawn symbol (fingerprint),
-  an impact. Big heavy caps top-left (Inter Tight 900, tight), the key word in italic serif accent colour, word captions centred.
-  Persistent brand frame (reference label top-left, ALOI top-right, progress line) and an end card with price + WhatsApp pill.
-- **Style**: centred word-by-word captions (1–2 words, Inter 700, y≈1110). On key beats replace the caption with ONE centred block: small lead-in + HUGE HEAVY WORD (Inter 900, often with a period) or small + gold italic serif (Playfair) + small. One text element on screen at a time. No kitsch: no particles/sparkles, no stamps, no camera shake, no bouncing, no HUD typewriters, no pastel swatch pages, no slider bars.
-- **Background**: only the **wall behind the speaker** may be replaced (`scripts/rvm_wall.py`); bed/desk/what she sits on stays real. Use it 3–5 times max (hook, 2–3 adjectives, the climax). Words on the wall sit behind her hair (depth).
-- **Zooms**: one snap speed (0.12–0.15 s, ease-out) and one slow push rate (≈0.035/s). ~1 zoom change per beat, never random.
-- **Transitions**: ≤ 1 GL transition per 2 cuts, never the same type twice in a row, a signature one reused (CrossZoom). Each = motion + light (flash/leak) + SFX on the same frame. Other cuts are hard cuts on the beat.
-- **Sound** (README in `public/sfx_bank/`): music at a FIXED level (never ducked); few sounds, only on visible actions; short bright interface sounds, no useless bass, no memes (fahh, dexter, taco-bell). Levels are set relative to the voice by `mix_sfx.py` (−22…−27 dB rel). Final loudness −14 LUFS / −1 dBTP.
-- **Length**: 20–25 s. Hook must stop the scroll in < 1 s (strongest claim first, frame 0 already moving, text readable by frame 6).
-- **Budget**: never spend paid credits (Higgsfield, etc.) without an explicit quote + approval. Don't fan out many agents; render only when the EDL validates.
+- **Planche first, always.** Before ANY full render, render 15–20 stills at the key beats and SEND the planche; render only after.
+  Best: stills of `PlatformPreview` with `edl` embedded (live reel inside the real app UI) — no full render needed.
+  `npx remotion bundle src/index.ts --out-dir <b>` then `npx remotion still <b> PlatformPreview <out> --frame=N --props=<preview+edl json> --scale=0.3`,
+  tile with `ffmpeg -pattern_type glob -i '...' -vf "scale=216:-1,tile=6x3"`. Look at it yourself and fix before sending.
+- **One master per platform** (`edl.platform`: instagram | tiktok | youtube; layout table `src/engine/ctx.ts LAYOUT`, `upY()`):
+  first text line just under the app header — Instagram y ≈ 215 (header "Reels ⌄ Amis" centred at y ≈ 165), TikTok y ≈ 190
+  (under "Pour toi"), Shorts y ≈ 140 (only icons top-right). Generic phone = iPhone 13 (390×844 pt, status bar 47 pt, tab bar
+  83 pt → 2.523 px/pt, ~48 px cropped per side). Keep text in x 96–984 (96–900 below y 1000) and above y ≈ 1440 (TikTok bottom);
+  right rail (likes…) from mid-height; @handle + caption at the bottom. No brand frame / progress bar (client: useless).
+  Render only the platforms asked for (often just Instagram).
+- **Text never on the face**: titles one line in the top band, in front of the speaker; captions centred (y ≈ 1180, size 52);
+  face not over-zoomed (camera ≤ ~1.09, small punches); notifications max 2 visible so the eyes stay clear.
+- **Readable timing**: entrance ≤ 0.3 s (letters/words stagger fast), on screen ≥ 0.4 s + 0.06 s/char, exits accelerate.
+- **Wall-only replacement** (`scripts/rvm_wall.py`): the room/bed stays real; never cut out the whole person.
+- **No kitsch**: no sparkles/particles, stamps, camera shake, RGB split, lens flares, bouncy easing, slider bars, pastel swatch
+  pages, emoji stickers, clichés (moustache). Apple design rules for UI pieces: weight 600 headlines, tight tracking, pills,
+  translucent materials, one soft shadow only on product images.
+- **Sound** (client README in `public/sfx_bank/`): music at a FIXED level (never ducked); short bright interface sounds only on
+  visible actions, no useless bass, no memes, never the same cue twice in a row, no sound on about half the cuts, heavy impacts
+  for ~5 moments; levels relative to the voice (−22…−31 dB rel, `mix_sfx.py`, align `peak` = hit 1 frame early). Whooshes:
+  `public/sfx_bank/cc0/` (CC0). Final −14 LUFS / −1 dBTP.
+- **Length** 20–25 s. Hook stops the scroll in < 1 s (strongest line first, frame 0 already moving).
+- **Facts**: never invent prices, sizes or claims (e.g. a photo shows 100 ml while others show 50 ml → don't print a size).
+- **Budget**: the only credit cost is writing the EDL; renders, matting, variants and `--remix-audio` are free (CPU). No paid
+  generation (Higgsfield…) without quote + approval; no big agent research in production.
 
 ## Pipeline (commands from `perfume-reel/`)
-1. **Intake** — put the raw video in `jobs/<id>/raw.mov`, product photos in `public/img/<id>/`, b-roll in `public/broll/`. Grade + upscale to 1080×1920/30 fps:
-   `ffmpeg -i raw -vf "scale=1080:1920:flags=lanczos,hqdn3d=1.5:1.5:4:4,unsharp=5:5:0.7,curves=master='0/0.015 0.25/0.22 0.5/0.5 0.8/0.82 1/0.98',eq=saturation=1.03,vignette=PI/6" -r 30 graded_full.mp4`
-2. **Transcribe** — `node scripts/transcribe.mjs <audio.wav> french > words.json` (Whisper base via `sts-whisper-base`, word timestamps), then snap word starts to real onsets (`scripts/align.py` pattern: RMS onsets after ≥100 ms of silence, ±0.3 s).
-3. **Write the cut (Claude judgement)** — pick the 20–25 s story: HOOK (strongest claim/paradox, e.g. "les gens ne vont pas l'oublier") → product reveal → paradox/twist → 2–3 sensory/feature beats → climax word (music drop) → payoff → recommendation/CTA. Verify every cut point on silence (RMS profile at 20 ms, then re-transcribe each clip). Build `base_<id>.mp4` + `voice_<id>.wav` by concatenating segments (one ffmpeg call per segment, then concat demuxer — avoids OOM). Voice: `highpass=70,acompressor=-26dB:3:8:120:makeup=4,loudnorm=I=-16`.
-4. **Matting** — for each wall window: `python3 -I scripts/rvm_wall.py <rvm_resnet50.onnx> graded_full.mp4 <src_start> <src_end> 1.5 public/wall_<x>.webm` (adapt the wall contour `PTS` to the room: the line where the wall meets the furniture). Model: `https://github.com/PeterL1n/RobustVideoMatting/releases/download/v1.0.0/rvm_resnet50_fp32.onnx` (`pip install onnxruntime scipy`).
-5. **EDL** — words (re-timed to output), camera keys, walls, blocks, scenes (`title` / `media` / `cards` / `end`, all `enter/exit: "cut"` at GL points), overlays (flash on slams and the drop, grain 0.05), `sfx` cues, `music` (offset so the song's drop lands on the climax word). GL cuts in `edl/<id>.post.json` (`CrossZoom` 8–10 f, `DreamyZoom` 12–14 f, `FilmBurn` 12 f, `LinearBlur` 10 f; `flash` 0.4–0.5, `leak` 0.2–0.35).
-6. **Render** — `python3 -I scripts/render_reel.py edl/<id>.json edl/<id>.post.json` → SFX stem, pass 1 (clean), frames, pass 2 (GL, `--gl=swangle`), audio mux + loudnorm → `out/<id>.mp4` (< 30 MB).
-7. **QA** — contact sheet at 3 fps (`ffmpeg -vf "fps=3,scale=100:-1,tile=17x4"`), check: no text over product labels, no element hidden behind the head, captions in sync, one text element at a time, every GL cut has flash/leak + sound, loudness −14 LUFS. Fix the EDL and re-render (`--skip-pass1` if only GL cuts changed).
+1. **Intake** — raw video → grade + upscale to 1080×1920/30 fps:
+   `ffmpeg -i raw -vf "scale=1080:1920:flags=lanczos,hqdn3d=1.5:1.5:4:4,unsharp=5:5:0.7,curves=master='0/0.015 0.25/0.22 0.5/0.5 0.8/0.82 1/0.98',eq=saturation=1.03" -r 30 graded.mp4`
+2. **Transcribe** — `node scripts/transcribe.mjs <audio.wav> french > words.json` (Whisper base, local), snap starts to onsets.
+3. **Cut** 20–25 s on silences; build `base_<id>.mp4` + `voice_<id>.wav` (one ffmpeg call per segment + concat demuxer).
+   Voice: `highpass=70,acompressor=-26dB:3:8:120:makeup=4,loudnorm=I=-16`.
+4. **Punchline table** — for each line: time, visual (notif / badge / wall swap / gauge / symbol / cutaway / caps title), SFX.
+5. **Matting** — `python3 -I scripts/rvm_wall.py <rvm_resnet50.onnx> <graded.mp4> <start> <end> <warmup> public/wall_<x>.webm`
+   per wall window (adapt contour `PTS`). Model: RVM GitHub release (GPL-3, internal use only).
+6. **EDL** — copy `edl/ebene_v14_ig.json` and replace words, camera, walls, types, cards, fx, scenes, sfx, music; set `platform`.
+7. **Planche** (rule above) → client OK.
+8. **Render** — `python3 -I scripts/render_reel.py edl/<id>.json edl/<id>.post.json` (SFX stem → pass 1 → WebGL pass 2 →
+   grade + loudnorm → `out/<id>.mp4` < 30 MB). Sound-only iteration: `--remix-audio`.
+9. **Preview** — copy the mp4 to `public/preview/`, `out/preview_<platform>.json`, render `PlatformPreview` (swipe-in, real
+   app UI; counts are placeholders, never posted).
+10. **QA** — contact sheet 3 fps, decode check, −14 LUFS, nothing under the app UI, one text element at a time.
 
-## SFX roles (client bank `public/sfx_bank/`, all aligned on their loudest point with `"peak"`)
+## Engine map
+- `src/engine/Reel.tsx` — camera (`camera` keys), walls (bg image/video/css, scan entrance, words behind), scenes
+  (`media`, `cards`, `paper`, legacy `title`/`end`), blocks, captions (classic | `yass`), overlays (flash, leak), audio.
+- `src/engine/Design.tsx` — `types` (multi-line typographic compositions: sans / serif / mono / caps, anims rise | blur | track
+  | slam | type, underline, rule, scrim), `cards` (white/black floating cards, flip), `sheet` (product fiche), `YassCaptions`.
+- `src/engine/Fx.tsx` — `fx`: notifs, badge (icons tie/lips/flame/drop/…), gauge, fingerprint, burst, scan, endcard,
+  brand (unused now), safezone (planche guide only).
+- `src/engine/GlPost.tsx` + `scripts/gl_post_frames.py` — WebGL transitions on the clean render.
+- `src/engine/ctx.ts` — shared helpers + per-platform `LAYOUT` / `upY`.
+- `src/preview/PlatformPreview.tsx` — Instagram / TikTok / YouTube Shorts UI (iPhone 13 geometry), swipe-in, `edl` planche mode.
+
+## SFX roles (client bank `public/sfx_bank/`, align `peak`)
 | role | file |
 |---|---|
-| hook open | `perso/ping-iphone` (−22) |
-| heavy word slam | `macos/pop` (−22) |
+| notification | `perso/ping-iphone`, `ui-pack/01-notifications/notification-rapide`, `ios18/01-notifications/message-recu` |
+| caps title / slam | `macos/pop` (−22), alternate `ios18/05-interface/verrouillage-clic` |
 | serif accent / reveal | `tiktok-pack3/glass-shine` (−25), `macos/glass` (−24) |
-| brand/title word | `ios18/05-interface/verrouillage-clic` (−24) |
-| strike-through / "no" | `ios18/03-validation/apple-pay-echec` (−27) |
-| GL transition whoosh | `uisfx/swipe-cinematic`, `swipe-dreamy`, `swipe-studio`, `swipe-glass` (CC0, −24/−25) |
-| card / tag pop-in | `ui-pack/04-interface/ui-serie-b-05` (−26) |
-| build into the drop | `tiktok-pack1/metallic-riser` (peak on the drop, −23) |
-| flash / drop | `ios18/05-interface/obturateur` (−23) |
-| product appears | `ios18/05-interface/nouveau-souvenir` (−26) |
-| end / CTA | `macos/hero` (−23) |
-| price / validation | `ios18/03-validation/apple-pay-succes`, `macos/tink` |
-`research/sfx_catalog.json` has duration / transient / centroid / low-end per file. The bank's `ui-pack/06-transition` whooshes are missing — ask the client if real whooshes are wanted.
-
-## Watch-specific beats
-Reference + calibre/movement + case size/material + scarcity/price + CTA. Product cutaways: macro photo with a slow push + 1–2 spec tags (`tags` on a `media` scene), a number/price block (`heavy`), end card with the model name pill. Theme: steel/teal grade, gold `#C9A45C`, Bodoni Moda or Playfair for accents.
-
-## Asset library (free for commercial use, licences next to each pack)
-`perfume-reel/library/CATALOGUE.md` lists every file and when to use it in an ALOI reel.
-- `public/lib/sfx/<role>/` — 119 CC0 sounds (whoosh, click-ui, pop, card-paper, money, watch-mech ticks 4/8 Hz, shutter-glass, riser) + `public/sfx_bank/cc0/` whooshes. The client bank stays first choice.
-- `public/lib/lottie/` — 26 MIT monoline animated icons (check, arrows, dollar, watch) + Noto animated emoji (CC BY 4.0: credit "Google Noto Emoji animations").
-- `public/lib/stickers/` — Fluent 3D emoji PNG (MIT: banknotes €/$, money with wings, watch, gem, eyes, smirk, pointing hands…) + Lucide/Phosphor icons. One sticker per beat at most; desaturate for the B&W brand when it fights the palette.
-- `public/lib/overlays/` — CC0 sprites + our grain/dust/light-sweep loops; `overlays/shader-sources-glsl/` (MIT) to port into the WebGL component.
-- `library/remotion/` — MIT components to restyle (price count-up, hand-drawn callouts, hook/end cards, voice-note bubble).
-- `library/behind/` — matting notes: RVM mobilenetv3 at downsample 0.25 ≈ 170 ms/frame on 4 CPU (GPL-3: internal tool only, don't redistribute); MODNet as fallback. Weights are git-ignored.
-
-## Sound and timing rules (from the research)
-- SFX land 1 frame BEFORE the visual hit; one cue sheet (EDL) drives text, transitions and sounds.
-- No sound on about half the cuts; never the same cue twice in a row; heavy impacts reserved for ~5 moments.
-- Every text must stay readable: entrance ≤ 0.3 s, and on screen at least 0.4 s + 0.06 s per character before its exit.
-- Banned looks: RGB split, camera shake, lens flares, bouncy easing, particle spam.
-
-## Platform previews (each app has its own layout — never assume one format)
-`src/preview/PlatformPreview.tsx` (composition `PlatformPreview`) plays the finished reel inside a realistic app UI, arriving with
-a swipe from a previous reel, so the client sees what the app covers. Props: `out/preview_<platform>.json`
-(`platform`: instagram | tiktok | youtube, handle, caption, music, counts, `scroll`, `duration`); copy the final mp4 to
-`public/preview/`. Render: `npx remotion render src/index.ts PlatformPreview out/apercu_<platform>.mp4 --props=out/preview_<platform>.json`.
-- Generic phone = **iPhone 13** (390×844 pt, status bar 47 pt, bottom tab bar 83 pt): the reel fills the 761 pt above the tab bar → 2.523 px/pt in the 1080×1920 frame, ~48 px cropped per side.
-- **Instagram Reels**: header row centred at y ≈ 165 px ("Reels ⌄  Amis" centred, + left, camera right); right rail heart/comment/repost/send/save/more
-  from mid-height (x ≈ 920–1000, y ≈ 1000–1810); avatar + @handle + Suivre (y ≈ 1680), caption + audio line under it; the floating
-  tab bar sits below the 9:16 frame; ~54 px cropped per side on tall phones.
-- **TikTok**: LIVE · Explorer · Abonnements · **Pour toi** tabs (y ≈ 110–160); avatar with red + then heart/comment/bookmark/share
-  and the spinning disc on the right (y ≈ 860–1560); @handle, caption with hashtags and ♫ line at the bottom-left (y ≈ 1540–1720);
-  opaque nav bar (Accueil, Amis, +, Boîte de réception, Profil) over the last ~150 px.
-- **YouTube Shorts**: search/camera/⋮ top-right; round buttons J'aime / Je n'aime pas / comments / Partager / Remixer + audio
-  square on the right (y ≈ 900–1560); avatar + @handle + S'abonner pill, title and ♫ line bottom-left; nav bar (Accueil, Shorts,
-  +, Abonnements, Vous) over the last ~150 px.
-These previews are internal review material only (counts are placeholders) and are never posted.
+| badge / card pop | `ui-pack/04-interface/ui-serie-b-05` (−26), `ui-pack/04-interface/interaction-simple-0x` |
+| wall swap / transition | `cc0/transition-sweep`, `cc0/whoosh-pass-fast`, `cc0/whoosh-high`, `cc0/whoosh-tight`, `cc0/whoosh-pass-slow` |
+| gauge / counter / typing | `cc0/type-tick` (−31, one per step), `tiktok-pack1/mac-typing` |
+| card flip / page | `tiktok-pack3/changement-de-page` |
+| drop | `tiktok-pack1/metallic-riser` + `ios18/05-interface/obturateur` (−23) |
+| CTA | `ios18/03-validation/apple-pay-succes`, `macos/hero` |
+Extra CC0 library (unused so far): `public/lib/` + `library/CATALOGUE.md` (incl. mechanical watch ticks 4/8 Hz).
