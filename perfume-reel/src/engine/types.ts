@@ -49,7 +49,8 @@ export type Scene =
   | (SceneBase & {kind: 'title'; image: string; brand: string; brandAt: number; name: string; nameAt: number; paper?: boolean})
   | (SceneBase & {kind: 'media'; media: Media; dark?: number; shade?: [number, number]; punches?: number[]; blocks?: Block[]; hud?: boolean})
   | (SceneBase & {kind: 'cards'; media: Media; dark?: number; blocks?: Block[]; cards: Card[]})
-  | (SceneBase & {kind: 'end'; image: string; blocks?: Block[]; pill?: {text: string; at: number}});
+  | (SceneBase & {kind: 'end'; image: string; blocks?: Block[]; pill?: {text: string; at: number}})
+  | (SceneBase & {kind: 'paper'; tone?: 'light' | 'dark'});
 
 export type Overlay =
   | {kind: 'flash'; at: number; dur?: number; color?: string}
@@ -62,6 +63,8 @@ export type SfxCue = [string, number, number, 'start' | 'peak' | 'end'];        
 export type Theme = {
   ink: string; gold: string; goldLight: string; paper: string;
   sans: string; serif: string;
+  mono?: string;               // labels / references (fiche)
+  captionStyle?: 'classic' | 'yass';  // yass = word rise, emphasised words in serif italic, no punctuation
   captionY: number;            // centre line for captions/blocks
   captionSize: number;
 };
@@ -81,4 +84,40 @@ export type Edl = {
   scenes: Scene[];
   overlays: Overlay[];
   sfx?: SfxCue[];              // consumed by scripts/mix_sfx.py → sfxStem
+  /* design layer */
+  types?: TypeComp[];
+  cards?: FloatCard[];
+  sheet?: Sheet;
+  captionEmph?: string[];      // words shown in serif italic in yass captions
+  grade?: string;              // ffmpeg -vf chain applied at the finish step (look / colour)
+};
+
+/* =====================================================================
+   Design layer: typographic compositions, floating cards, product sheet.
+   ===================================================================== */
+export type TextAnim = 'rise' | 'blur' | 'track' | 'slam' | 'type' | 'none';
+export type Line = {
+  text: string; at: number;
+  font?: 'sans' | 'serif' | 'mono' | 'caps';
+  size?: number; weight?: number; color?: string; tracking?: number;
+  anim?: TextAnim; stagger?: number; dur?: number;
+  dx?: number; dy?: number;
+  underlineAt?: number;        // hand-drawn underline that draws itself
+  rule?: number;               // instead of text: a hairline of this width that grows
+};
+export type TypeComp = {
+  from: number; to: number; y: number; x?: number; align?: 'center' | 'left';
+  lines: Line[]; gap?: number; behind?: boolean; exit?: 'blur' | 'up' | 'cut'; shadow?: boolean; scrim?: boolean;
+};
+export type CardFace = {label?: string; title: string; titleFont?: 'serif' | 'sans' | 'caps'; sub?: string; dark?: boolean};
+export type FloatCard = CardFace & {
+  from: number; to: number; at: number; x: number; y: number; w: number; rot?: number;
+  image?: string; imagePos?: string; imageH?: number;
+  behind?: boolean; flipAt?: number; back?: CardFace;
+  enter?: 'rise' | 'left' | 'right' | 'pop'; parallax?: number;
+};
+export type Sheet = {
+  from: number; to: number; at: number; image: string; imagePos?: string; label: string;
+  rows: [string, string][]; rowsAt: number; rowGap?: number; top?: number;
+  pill?: {text: string; at: number};
 };

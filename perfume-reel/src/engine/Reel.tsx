@@ -1,9 +1,11 @@
-import React, {createContext, useContext} from 'react';
+import React from 'react';
 import {
   AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, spring,
   staticFile, useCurrentFrame, Easing, random,
 } from 'remotion';
 import type {Block, Card, Edl, Media, Overlay, Scene, Tag, TransitionName, Wall} from './types';
+import {Ctx, useEdl, useT, ease, inOut, clamp, SHADOW, camAt} from './ctx';
+import {TypeCompView, FloatCardView, SheetView, YassCaptions, PaperBg, activeFront} from './Design';
 
 /* =====================================================================
    Generic reel renderer: <Reel edl={...}/> — no hard-coded timings here.
@@ -14,19 +16,8 @@ import type {Block, Card, Edl, Media, Overlay, Scene, Tag, TransitionName, Wall}
      overlays (flash, light leak, grain, video)
    ===================================================================== */
 
-const Ctx = createContext<Edl | null>(null);
-const useEdl = () => useContext(Ctx)!;
-const useT = () => {
-  const edl = useEdl();
-  return useCurrentFrame() / edl.fps;
-};
-
-const ease = Easing.bezier(0.22, 1, 0.36, 1);
-const inOut = Easing.inOut(Easing.cubic);
-const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const win = (t: number, a: number, b: number, fi = 0.12, fo = 0.12) => interpolate(t, [a, a + fi, b - fo, b], [0, 1, 1, 0], clamp);
 const fit = (text: string, size: number, k: number, maxW = 940) => Math.min(size, maxW / (Math.max(1, text.length) * k));
-const SHADOW = '0 2px 6px rgba(0,0,0,0.35), 0 6px 26px rgba(0,0,0,0.45)';
 
 /* ---------------------------------------------------------------- media */
 const MediaView: React.FC<{m: Media; from: number; to: number}> = ({m, from, to}) => {
@@ -138,9 +129,13 @@ const Captions: React.FC<{hidden: boolean}> = ({hidden}) => {
 const WallBg: React.FC<{w: Wall}> = ({w}) => {
   const t = useT();
   if (!w.bg) return null;
+  const edl = useEdl();
   const o = win(t, w.from, w.to, 0.06, 0.06);
+  // depth: the replaced wall moves about half as much as the speaker when the camera punches in
+  const cs = camAt(edl, t);
+  const half = (1 + (cs - 1) * 0.5) / cs;
   return (
-    <AbsoluteFill style={{opacity: o, background: '#000'}}>
+    <AbsoluteFill style={{opacity: o, background: '#000', transform: `scale(${half})`, transformOrigin: edl.base.origin ?? '50% 32%'}}>
       {w.bg.css ? <AbsoluteFill style={{background: w.bg.css}} /> : <MediaView m={w.bg} from={w.from} to={w.to} />}
       <AbsoluteFill style={{background: `rgba(10,6,3,${w.bg.dark ?? 0})`}} />
     </AbsoluteFill>
@@ -188,6 +183,8 @@ const WallLayer: React.FC = () => {
     <>
       {w ? <WallBg w={w} /> : null}
       {w ? <WallTexts w={w} /> : null}
+      {w ? (edl.cards ?? []).filter((c) => c.behind).map((c, i) => <FloatCardView key={'bc' + i} c={c} />) : null}
+      {w ? (edl.types ?? []).filter((c) => c.behind).map((c, i) => <TypeCompView key={'bt' + i} c={c} />) : null}
       {clips.map((c, i) => (
         <Sequence key={i} from={Math.round(c.from * edl.fps)} durationInFrames={Math.round(c.to * edl.fps) - Math.round(c.from * edl.fps)}>
           <OffthreadVideo src={staticFile(c.clip)} transparent muted />
@@ -198,15 +195,6 @@ const WallLayer: React.FC = () => {
 };
 
 /* --------------------------------------------------------------- camera */
-const camAt = (edl: Edl, t: number) => {
-  let v = 1;
-  for (const [k, s, d] of edl.camera) {
-    if (t < k) break;
-    const p = interpolate(t, [k, k + Math.max(d, 0.001)], [0, 1], {...clamp, easing: d <= 0.2 ? ease : inOut});
-    v = v + (s - v) * p;
-  }
-  return v;
-};
 const camBlur = (edl: Edl, t: number) => {
   if (edl.camera.some(([k, , d]) => d < 0.05 && Math.abs(t - k) < 1 / 25)) return 0;
   const dv = Math.abs(camAt(edl, t + 1 / 60) - camAt(edl, t - 1 / 60)) * 30;
@@ -333,6 +321,7 @@ const SceneView: React.FC<{s: Scene}> = ({s}) => {
     case 'media': return <MediaScene s={s} />;
     case 'cards': return <CardsScene s={s} />;
     case 'end': return <EndScene s={s} />;
+    case 'paper': return <PaperBg tone={s.tone} />;
   }
 };
 
@@ -444,7 +433,12 @@ export const Reel: React.FC<{edl: Edl}> = ({edl}) => {
         </AbsoluteFill>
         {scene ? <SceneWrap s={scene}><SceneView s={scene} /></SceneWrap> : null}
         {!scene && block ? <BlockView b={block} /> : null}
-        <Captions hidden={!!scene || !!block || !!wall} />
+        {(edl.cards ?? []).filter((c) => !c.behind).map((c, i) => <FloatCardView key={'fc' + i} c={c} overBase={!scene} />)}
+        {(edl.types ?? []).filter((c) => !c.behind).map((c, i) => <TypeCompView key={'ft' + i} c={c} />)}
+        {edl.sheet ? <SheetView s={edl.sheet} /> : null}
+        {edl.theme.captionStyle === 'yass'
+          ? <YassCaptions hidden={!!scene || !!block || !!wall || activeFront(edl, t)} />
+          : <Captions hidden={!!scene || !!block || !!wall} />}
         {edl.overlays.map((o, i) => <OverlayView key={i} o={o} />)}
         <Audio src={staticFile(edl.voice)} />
         {edl.sfxStem ? <Audio src={staticFile(edl.sfxStem)} /> : null}
