@@ -444,12 +444,12 @@ export const Reel: React.FC<{edl: Edl}> = ({edl}) => {
         {(edl.cards ?? []).filter((c) => !c.behind).map((c, i) => <FloatCardView key={'fc' + i} c={c} overBase={!scene} />)}
         {(edl.types ?? []).filter((c) => !c.behind).map((c, i) => <TypeCompView key={'ft' + i} c={c} />)}
         {edl.sheet ? <SheetView s={edl.sheet} /> : null}
-        {(edl.fx ?? []).filter((f) => f.kind !== 'brand').map((f, i) => <FxView key={'fx' + i} fx={f} />)}
+        {(edl.fx ?? []).filter((f) => f.kind !== 'brand' && f.kind !== 'safezone').map((f, i) => <FxView key={'fx' + i} fx={f} />)}
         {edl.theme.captionStyle === 'yass'
           ? <YassCaptions hidden={(!!scene && !scene.captions) || !!block || (!!wall && !wall.captions) || activeFront(edl, t) || fxOwnsFrame(edl, t)} />
           : <Captions hidden={!!scene || !!block || !!wall} />}
         {edl.overlays.map((o, i) => <OverlayView key={i} o={o} />)}
-        {(edl.fx ?? []).filter((f) => f.kind === 'brand').map((f, i) => <FxView key={'br' + i} fx={f} />)}
+        {(edl.fx ?? []).filter((f) => f.kind === 'brand' || f.kind === 'safezone').map((f, i) => <FxView key={'br' + i} fx={f} />)}
         <Audio src={staticFile(edl.voice)} />
         {edl.sfxStem ? <Audio src={staticFile(edl.sfxStem)} /> : null}
         {music ? (

@@ -130,10 +130,11 @@ export type Sheet = {
    Punch layer (src/engine/Fx.tsx)
    ===================================================================== */
 export type Fx =
-  | {kind: 'brand'; from: number; to: number; label: string; mark: string; color?: string; accent?: string}
+  | {kind: 'brand'; from: number; to: number; label: string; mark: string; color?: string; accent?: string; top?: number}
+  | {kind: 'safezone'; from: number; to: number}
   | {kind: 'badge'; from: number; to: number; x: number; y: number; size?: number; ring?: string; bg?: string; color?: string;
-     image?: string; pos?: string; video?: string; offset?: number; icon?: 'moustache' | 'lips' | 'flame' | 'drop'; text?: string}
-  | {kind: 'notifs'; from: number; to: number; y?: number; clock?: string; date?: string; items: {at: number; title: string; text: string; time?: string; app?: 'messages' | 'whatsapp'}[]}
+     image?: string; pos?: string; video?: string; offset?: number; icon?: 'tie' | 'moustache' | 'lips' | 'flame' | 'drop'; text?: string}
+  | {kind: 'notifs'; from: number; to: number; y?: number; max?: number; lock?: boolean; clock?: string; date?: string; items: {at: number; title: string; text: string; time?: string; app?: 'messages' | 'whatsapp'}[]}
   | {kind: 'gauge'; from: number; to: number; y: number; label: string; fillFrom: number; fillTo: number; steps?: number; accent?: string}
   | {kind: 'fingerprint'; from: number; to: number; y?: number; size?: number; color?: string}
   | {kind: 'burst'; from: number; to: number; at: number; x: number; y: number; color?: string}
