@@ -12,3 +12,4 @@ public/post/
 library/behind/**/*.onnx
 library/behind/models/
 public/wall_full.webm
+public/preview/

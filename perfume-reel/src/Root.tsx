@@ -24,6 +24,8 @@ import type {Edl} from './engine/types';
 import ebeneV7 from '../edl/ebene_v7.json';
 import {GlPost} from './engine/GlPost';
 import type {GlPostProps} from './engine/GlPost';
+import {PlatformPreview} from './preview/PlatformPreview';
+import type {PreviewProps} from './preview/PlatformPreview';
 
 export const RemotionRoot = () => (
   <>
@@ -41,5 +43,8 @@ export const RemotionRoot = () => (
     <Composition id="GlPost" component={GlPost} fps={30} width={1080} height={1920} durationInFrames={1}
       defaultProps={{video: '', framesDir: '', fps: 30, duration: 1, cuts: []} as GlPostProps}
       calculateMetadata={({props}) => ({durationInFrames: Math.round(props.duration * props.fps), fps: props.fps})} />
+    <Composition id="PlatformPreview" component={PlatformPreview} fps={30} width={1080} height={1920} durationInFrames={1}
+      defaultProps={{src: '', platform: 'instagram', handle: 'aloi.watch', caption: '', music: '', likes: '', comments: '', shares: '', saves: '', scroll: 0.8, duration: 1} as PreviewProps}
+      calculateMetadata={({props}) => ({durationInFrames: Math.round((props.scroll + props.duration) * 30)})} />
   </>
 );

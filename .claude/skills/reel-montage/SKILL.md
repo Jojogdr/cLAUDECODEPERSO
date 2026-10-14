@@ -75,3 +75,19 @@ Reference + calibre/movement + case size/material + scarcity/price + CTA. Produc
 - No sound on about half the cuts; never the same cue twice in a row; heavy impacts reserved for ~5 moments.
 - Every text must stay readable: entrance ≤ 0.3 s, and on screen at least 0.4 s + 0.06 s per character before its exit.
 - Banned looks: RGB split, camera shake, lens flares, bouncy easing, particle spam.
+
+## Platform previews (each app has its own layout — never assume one format)
+`src/preview/PlatformPreview.tsx` (composition `PlatformPreview`) plays the finished reel inside a realistic app UI, arriving with
+a swipe from a previous reel, so the client sees what the app covers. Props: `out/preview_<platform>.json`
+(`platform`: instagram | tiktok | youtube, handle, caption, music, counts, `scroll`, `duration`); copy the final mp4 to
+`public/preview/`. Render: `npx remotion render src/index.ts PlatformPreview out/apercu_<platform>.mp4 --props=out/preview_<platform>.json`.
+- **Instagram Reels**: top "Reels ⌄ Amis" tabs with + and camera (y ≈ 160–220); right rail heart/comment/repost/send/save/more
+  from mid-height (x ≈ 920–1000, y ≈ 1000–1810); avatar + @handle + Suivre (y ≈ 1680), caption + audio line under it; the floating
+  tab bar sits below the 9:16 frame; ~54 px cropped per side on tall phones.
+- **TikTok**: LIVE · Explorer · Abonnements · **Pour toi** tabs (y ≈ 110–160); avatar with red + then heart/comment/bookmark/share
+  and the spinning disc on the right (y ≈ 860–1560); @handle, caption with hashtags and ♫ line at the bottom-left (y ≈ 1540–1720);
+  opaque nav bar (Accueil, Amis, +, Boîte de réception, Profil) over the last ~150 px.
+- **YouTube Shorts**: search/camera/⋮ top-right; round buttons J'aime / Je n'aime pas / comments / Partager / Remixer + audio
+  square on the right (y ≈ 900–1560); avatar + @handle + S'abonner pill, title and ♫ line bottom-left; nav bar (Accueil, Shorts,
+  +, Abonnements, Vous) over the last ~150 px.
+These previews are internal review material only (counts are placeholders) and are never posted.
