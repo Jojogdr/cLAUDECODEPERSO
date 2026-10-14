@@ -12,6 +12,12 @@ Everything lives in `perfume-reel/` (Remotion 4.0.535, React 18). One generic co
   (`npx remotion bundle` once, then `npx remotion still <bundle> Reel <out> --frame=N --props=... --scale=0.3`), tile them
   (`ffmpeg -pattern_type glob -i 's*.jpg' -vf "scale=216:-1,tile=10x2"`), look at it yourself, fix what is wrong, then SEND the
   planche to the client before launching the render. The render only starts after the planche has been sent.
+- **Platform safe zones (Reels + TikTok + Shorts at once).** Everything that matters sits in x 96–984 (x 96–900 below
+  y 1000) and y 240–1440. Above y ≈ 230 the iPhone status bar and the Reels/For-You tabs cover the frame; ~54 px per side are
+  cropped on tall phones; the like/comment/share rail is on the right from mid-height; @handle + caption at the bottom
+  (TikTok hides more: ~130 top, ~140 right, 320–480 bottom). The brand frame ("REF · MODEL" left, ALOI right) sits at y 240,
+  inset 96 px. Planches are rendered with the `safezone` fx (real Instagram UI drawn + TikTok margins + green safe box);
+  never ship it in the video. Keep the face un-zoomed (camera ≤ ~1.09, punches small), titles one line, front of the speaker.
 - **One literal visual per punchline** (reference: the Wimbledon pique): every joke/claim gets its own image within ~0.5–1 s —
   a cutaway (product, world), a mock-up (iOS lock screen + notifications, iMessage), a badge next to the speaker (circle with a
   drawn icon/photo), a background swap behind the speaker with a scan-line wipe, a gauge/counter, a drawn symbol (fingerprint),
