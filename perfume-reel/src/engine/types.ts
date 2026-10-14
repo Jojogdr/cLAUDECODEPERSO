@@ -38,6 +38,7 @@ export type Wall = {
   texts: WallText[]; top?: number;
   captions?: boolean;          // keep the word captions on while this wall is up
   enter?: 'fade' | 'scan';     // scan = the new background wipes down behind a light line
+  fadeIn?: number; fadeOut?: number;  // seconds (0.001 = hard join with the next wall)
 };
 
 export type Tag = {text: string; at: number; x: number; y: number; light?: boolean};
@@ -132,7 +133,7 @@ export type Fx =
   | {kind: 'brand'; from: number; to: number; label: string; mark: string; color?: string; accent?: string}
   | {kind: 'badge'; from: number; to: number; x: number; y: number; size?: number; ring?: string; bg?: string; color?: string;
      image?: string; pos?: string; video?: string; offset?: number; icon?: 'moustache' | 'lips' | 'flame' | 'drop'; text?: string}
-  | {kind: 'notifs'; from: number; to: number; y?: number; items: {at: number; title: string; text: string; time?: string; color?: string}[]}
+  | {kind: 'notifs'; from: number; to: number; y?: number; clock?: string; date?: string; items: {at: number; title: string; text: string; time?: string; app?: 'messages' | 'whatsapp'}[]}
   | {kind: 'gauge'; from: number; to: number; y: number; label: string; fillFrom: number; fillTo: number; steps?: number; accent?: string}
   | {kind: 'fingerprint'; from: number; to: number; y?: number; size?: number; color?: string}
   | {kind: 'burst'; from: number; to: number; at: number; x: number; y: number; color?: string}

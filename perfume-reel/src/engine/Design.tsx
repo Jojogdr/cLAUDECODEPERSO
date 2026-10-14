@@ -46,10 +46,11 @@ export const KLine: React.FC<{l: Line; shadow?: boolean}> = ({l, shadow}) => {
   const base: React.CSSProperties = {
     fontFamily: fontOf(edl, font), fontSize: size, color, whiteSpace: 'pre',
     fontStyle: font === 'serif' ? 'italic' : 'normal',
-    fontWeight: l.weight ?? (font === 'serif' ? 400 : font === 'caps' ? 800 : font === 'mono' ? 500 : 600),
+    fontWeight: l.weight ?? (font === 'serif' ? 400 : font === 'caps' ? 900 : font === 'mono' ? 500 : 600),
     letterSpacing: `${l.tracking ?? (font === 'mono' ? 0.16 : font === 'serif' ? -0.015 : -0.03)}em`,
     textTransform: font === 'mono' || font === 'caps' ? 'uppercase' : undefined,
-    lineHeight: font === 'serif' ? 1.0 : 1.05,
+    wordSpacing: font === 'caps' ? '0.14em' : undefined,
+    lineHeight: font === 'serif' ? 1.0 : font === 'caps' ? 0.86 : 1.05,
     textShadow: shadow ? SHADOW : undefined,
   };
   const anim = l.anim ?? (font === 'serif' ? 'blur' : font === 'mono' ? 'type' : font === 'caps' ? 'slam' : 'rise');
@@ -236,7 +237,7 @@ export const YassCaptions: React.FC<{hidden: boolean}> = ({hidden}) => {
           return (
             <span key={k} style={{display: 'inline-block', overflow: 'hidden', padding: '0.08em 0.05em 0.18em', margin: '-0.08em -0.05em -0.18em'}}>
               <span style={{display: 'inline-block', transform: `translateY(${(1 - q) * 100}%)`, opacity: Math.min(1, q * 3),
-                fontFamily: isE ? edl.theme.serif : edl.theme.sans, fontStyle: isE ? 'italic' : 'normal', fontWeight: isE ? 400 : 600,
+                fontFamily: isE ? edl.theme.serif : edl.theme.sans, fontStyle: isE ? 'italic' : 'normal', fontWeight: isE ? 400 : 700,
                 fontSize: isE ? edl.theme.captionSize * 1.45 : edl.theme.captionSize, letterSpacing: isE ? '-0.01em' : '-0.025em', color: '#fff'}}>{txt}</span>
             </span>
           );

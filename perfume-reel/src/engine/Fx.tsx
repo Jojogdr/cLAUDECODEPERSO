@@ -34,8 +34,13 @@ const BrandFrame: React.FC<{fx: Extract<Fx, {kind: 'brand'}>}> = ({fx}) => {
 
 /* ------------------------------------------------------------- icons */
 const ICONS: Record<string, React.ReactNode> = {
-  moustache: <path d="M50 46c-6-10-20-14-30-8-6 4-9 12-16 13 5 7 15 9 24 6 9-3 15-9 22-11 7 2 13 8 22 11 9 3 19 1 24-6-7-1-10-9-16-13-10-6-24-2-30 8z" fill="currentColor" />,
-  lips: <path d="M8 50c10-14 24-20 32-14 4 3 6 3 10 0 4 3 6 3 10 0 8-6 22 0 32 14-12 16-28 24-42 24S20 66 8 50zm8 0c12 4 28 6 34 6s22-2 34-6" fill="currentColor" stroke="currentColor" strokeWidth={0} />,
+  // handlebar moustache, symmetric, curled tips
+  moustache: <path d="M50 44C56 37 68 35 77 41C82 45 86 45 89 41C91 38 95 39 94 43C91 52 81 57 70 55C62 54 55 52 50 57C45 52 38 54 30 55C19 57 9 52 6 43C5 39 9 38 11 41C14 45 18 45 23 41C32 35 44 37 50 44Z" fill="currentColor" />,
+  // lips: cupid's bow upper lip + full lower lip, mouth line left as a gap
+  lips: <g fill="currentColor">
+    <path d="M12 51C22 41 32 34 41 37C45 38.5 47.5 40.5 50 38.5C52.5 40.5 55 38.5 59 37C68 34 78 41 88 51C75 52.5 61 52.5 50 53.5C39 52.5 25 52.5 12 51Z" />
+    <path d="M12 52.5C25 55 39 56 50 56C61 56 75 55 88 52.5C80 65 66 72 50 72C34 72 20 65 12 52.5Z" />
+  </g>,
   flame: <path d="M50 8c4 18 22 26 22 46a22 22 0 0 1-44 0c0-10 6-16 10-22 2 8 6 12 10 12-4-12 0-26 2-36z" fill="currentColor" />,
   drop: <path d="M50 10C40 30 26 44 26 60a24 24 0 0 0 48 0c0-16-14-30-24-50z" fill="currentColor" />,
 };
@@ -66,29 +71,52 @@ const Badge: React.FC<{fx: Extract<Fx, {kind: 'badge'}>}> = ({fx}) => {
 };
 
 /* ---------------------------------------------------- notifications */
+const MsgIcon: React.FC<{size: number; wa?: boolean}> = ({size, wa}) => (
+  <div style={{width: size, height: size, borderRadius: size * 0.225, flex: 'none', display: 'grid', placeItems: 'center',
+    background: wa ? 'linear-gradient(180deg,#5FFC7B 0%,#28D146 100%)' : 'linear-gradient(180deg,#67FF81 0%,#01B41F 100%)'}}>
+    <svg viewBox="0 0 100 100" style={{width: size * 0.66, height: size * 0.66}}>
+      <path d="M50 16C26 16 8 30 8 48c0 10 6 19 15 25-1 6-4 11-9 15 9 0 17-3 23-8 4 1 8 2 13 2 24 0 42-14 42-34S74 16 50 16z" fill="#fff" />
+    </svg>
+  </div>
+);
+
 const Notifs: React.FC<{fx: Extract<Fx, {kind: 'notifs'}>}> = ({fx}) => {
   const edl = useEdl();
   const t = useT();
   if (t < fx.from || t >= fx.to) return null;
   const o = out(t, fx.to, 0.12);
+  const sf = edl.theme.sans;
+  const shown = fx.items.filter((n) => t >= n.at);
+  // iOS lock screen: date + big clock, newest notification on top pushing the others down
+  const clk = pop(edl, t, fx.from, 20);
   return (
     <AbsoluteFill style={{opacity: o}}>
-      {fx.items.map((n, i) => {
-        if (t < n.at) return null;
-        const p = pop(edl, t, n.at, 16);
-        const y = (fx.y ?? 330) + i * 190;
+      <div style={{position: 'absolute', left: 0, right: 0, top: 250, textAlign: 'center', color: '#fff', opacity: Math.min(1, clk * 1.3), transform: `translateY(${(1 - clk) * -30}px)`,
+        textShadow: '0 2px 20px rgba(0,0,0,0.25)'}}>
+        <div style={{fontFamily: sf, fontWeight: 600, fontSize: 40, letterSpacing: '0.01em', opacity: 0.92}}>{fx.date ?? 'jeudi 13 novembre'}</div>
+        <div style={{fontFamily: sf, fontWeight: 600, fontSize: 230, lineHeight: 0.95, letterSpacing: '-0.035em'}}>{fx.clock ?? '21:47'}</div>
+      </div>
+      {shown.map((n, k) => {
+        const i = shown.length - 1 - k;            // 0 = newest, on top
+        const p = pop(edl, t, n.at, 17);
+        const prev = shown.length - 1 - k - 1;     // slot it had before the newest arrived
+        const yNew = (fx.y ?? 620) + i * 196;
+        const yOld = (fx.y ?? 620) + Math.max(0, prev) * 196;
+        const newest = shown[shown.length - 1];
+        const q = pop(edl, t, newest.at, 17);
+        const y = i === 0 ? yNew : yOld + (yNew - yOld) * q;
         return (
-          <div key={i} style={{position: 'absolute', left: 60, right: 60, top: y, padding: '26px 30px', borderRadius: 40, background: 'rgba(245,242,236,0.88)',
-            backdropFilter: 'blur(24px)', boxShadow: '0 24px 50px rgba(0,0,0,0.28)', display: 'flex', gap: 24, alignItems: 'center',
-            opacity: Math.min(1, p * 1.4), transform: `translateY(${(1 - p) * -120}px) scale(${0.92 + 0.08 * p})`}}>
-            <div style={{width: 92, height: 92, borderRadius: 22, background: n.color ?? '#34C759', flex: 'none', display: 'grid', placeItems: 'center'}}>
-              <svg viewBox="0 0 100 100" style={{width: 58, height: 58}}><path d="M50 18c-20 0-34 13-34 29 0 9 5 17 13 22l-3 13 14-8c3 1 6 1 10 1 20 0 34-13 34-28S70 18 50 18z" fill="#fff" /></svg>
-            </div>
-            <div style={{flex: 1, minWidth: 0}}>
-              <div style={{display: 'flex', justifyContent: 'space-between', fontFamily: edl.theme.sans, fontWeight: 700, fontSize: 34, color: '#141210'}}>
-                <span>{n.title}</span><span style={{fontWeight: 500, fontSize: 26, color: '#8C867D'}}>{n.time ?? 'maintenant'}</span>
+          <div key={n.at} style={{position: 'absolute', left: 44, right: 44, top: y, padding: '28px 30px 30px', borderRadius: 52,
+            background: 'rgba(250,250,252,0.72)', backdropFilter: 'blur(30px) saturate(1.8)', WebkitBackdropFilter: 'blur(30px) saturate(1.8)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.18)', display: 'flex', gap: 26, alignItems: 'flex-start',
+            opacity: i === 0 ? Math.min(1, p * 1.5) : 1, transform: i === 0 ? `translateY(${(1 - p) * -70}px) scale(${0.94 + 0.06 * p})` : undefined}}>
+            <MsgIcon size={92} wa={n.app === 'whatsapp'} />
+            <div style={{flex: 1, minWidth: 0, paddingTop: 2}}>
+              <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', fontFamily: sf, color: '#000'}}>
+                <span style={{fontWeight: 700, fontSize: 36, letterSpacing: '-0.01em'}}>{n.title}</span>
+                <span style={{fontWeight: 500, fontSize: 28, color: 'rgba(60,60,67,0.6)'}}>{n.time ?? 'maintenant'}</span>
               </div>
-              <div style={{fontFamily: edl.theme.sans, fontWeight: 500, fontSize: 34, color: '#2A2622', marginTop: 4, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{n.text}</div>
+              <div style={{fontFamily: sf, fontWeight: 500, fontSize: 35, lineHeight: 1.2, color: '#000', marginTop: 4}}>{n.text}</div>
             </div>
           </div>
         );

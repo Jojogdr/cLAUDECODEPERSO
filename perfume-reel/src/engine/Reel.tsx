@@ -17,7 +17,11 @@ import {FxView, fxOwnsFrame} from './Fx';
      overlays (flash, light leak, grain, video)
    ===================================================================== */
 
-const win = (t: number, a: number, b: number, fi = 0.12, fo = 0.12) => interpolate(t, [a, a + fi, b - fo, b], [0, 1, 1, 0], clamp);
+const win = (t: number, a: number, b: number, fi = 0.12, fo = 0.12) => {
+  const h = Math.max(0.0005, (b - a) / 2 - 0.0005);   // short windows: fades never overlap
+  fi = Math.max(0.0001, Math.min(fi, h)); fo = Math.max(0.0001, Math.min(fo, h));
+  return interpolate(t, [a, a + fi, b - fo, b], [0, 1, 1, 0], clamp);
+};
 const fit = (text: string, size: number, k: number, maxW = 940) => Math.min(size, maxW / (Math.max(1, text.length) * k));
 
 /* ---------------------------------------------------------------- media */
@@ -132,7 +136,7 @@ const WallBg: React.FC<{w: Wall}> = ({w}) => {
   const edl = useEdl();
   if (!w.bg) return null;
   const scan = w.enter === 'scan';
-  const o = scan ? win(t, w.from, w.to, 0.001, 0.06) : win(t, w.from, w.to, 0.06, 0.06);
+  const o = win(t, w.from, w.to, scan ? 0.001 : w.fadeIn ?? 0.06, w.fadeOut ?? 0.06);
   const reveal = scan ? interpolate(t, [w.from, w.from + 0.3], [0, 100], {...clamp, easing: Easing.inOut(Easing.cubic)}) : 100;
   // depth: the replaced wall moves about half as much as the speaker when the camera punches in
   const cs = camAt(edl, t);

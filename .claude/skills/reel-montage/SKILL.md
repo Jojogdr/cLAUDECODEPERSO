@@ -8,6 +8,15 @@ description: Edit a talking-head video (luxury watches, perfume, any product rev
 Everything lives in `perfume-reel/` (Remotion 4.0.535, React 18). One generic composition renders any **EDL** (edit decision list, `src/engine/types.ts`); a new video = a new `edl/<id>.json` (+ `edl/<id>.post.json` for GL transitions) + assets. `edl/ebene_v8.json` is the reference example — copy its structure.
 
 ## Hard rules (client)
+- **Planche first, always.** Before ANY full render (new video or new version), render 15–20 stills at the key beats
+  (`npx remotion bundle` once, then `npx remotion still <bundle> Reel <out> --frame=N --props=... --scale=0.3`), tile them
+  (`ffmpeg -pattern_type glob -i 's*.jpg' -vf "scale=216:-1,tile=10x2"`), look at it yourself, fix what is wrong, then SEND the
+  planche to the client before launching the render. The render only starts after the planche has been sent.
+- **One literal visual per punchline** (reference: the Wimbledon pique): every joke/claim gets its own image within ~0.5–1 s —
+  a cutaway (product, world), a mock-up (iOS lock screen + notifications, iMessage), a badge next to the speaker (circle with a
+  drawn icon/photo), a background swap behind the speaker with a scan-line wipe, a gauge/counter, a drawn symbol (fingerprint),
+  an impact. Big heavy caps top-left (Inter Tight 900, tight), the key word in italic serif accent colour, word captions centred.
+  Persistent brand frame (reference label top-left, ALOI top-right, progress line) and an end card with price + WhatsApp pill.
 - **Style**: centred word-by-word captions (1–2 words, Inter 700, y≈1110). On key beats replace the caption with ONE centred block: small lead-in + HUGE HEAVY WORD (Inter 900, often with a period) or small + gold italic serif (Playfair) + small. One text element on screen at a time. No kitsch: no particles/sparkles, no stamps, no camera shake, no bouncing, no HUD typewriters, no pastel swatch pages, no slider bars.
 - **Background**: only the **wall behind the speaker** may be replaced (`scripts/rvm_wall.py`); bed/desk/what she sits on stays real. Use it 3–5 times max (hook, 2–3 adjectives, the climax). Words on the wall sit behind her hair (depth).
 - **Zooms**: one snap speed (0.12–0.15 s, ease-out) and one slow push rate (≈0.035/s). ~1 zoom change per beat, never random.
